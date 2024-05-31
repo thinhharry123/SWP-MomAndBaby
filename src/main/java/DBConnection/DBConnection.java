@@ -9,7 +9,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String urlConnect = "jdbc:sqlserver://LAPTOP-FGVA9LOI\\MSSQLSERVER01:1433;databasename=database_mom_baby;"
+    private static final String urlConnect = "jdbc:sqlserver://LAPTOP-RSBQ59JN\\MSSQLSERVER01:1433;databasename=database_mom_baby;"
             + "user=sa;password=12345;characterEncoding=UTF-8;encrypt=true;trustServerCertificate=true;";
     public static Connection connect() {
         try {

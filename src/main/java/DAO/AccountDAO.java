@@ -167,12 +167,113 @@ public class AccountDAO {
         return null;
     }//get all user account
     
-    public void insert(Account a){
+    public int insert(Account a) {
         int result = 0;
-        String sql = "INSERT INTO "
-                + "Account(fullname, email, phone, "
-                + "username, password, role, "
-                + "date, status, avatar) "
+        String sql = "INSERT INTO Account (fullname, email, phone, username, password, role, date, status, avatar) "
                 + "VALUES(?, ?, ?, ?, ?, ?, ? ,?, ?)";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, a.getFullname());
+            st.setString(2, a.getEmail());
+            st.setString(3, a.getPhone());
+            st.setString(4, a.getUsername());
+            st.setString(5, a.getPassword());
+            st.setInt(6, a.getRole());
+            st.setTimestamp(7, a.getDate());
+            st.setInt(8, a.getStatus());
+            String avatar = a.getAvatar() != null ? a.getAvatar() : "./static-admin/assets/images/default_avatar.jpg";
+            st.setString(9, avatar);
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Insert account: " + e);
+        }
+        return result;
+    }
+    
+    public int delete(int id){
+        int result = 0;
+        String sql = "delete from Account where id=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, id);
+            result = st.executeUpdate();
+        } catch (SQLException er) {
+            System.out.println("Delete account: " + er);
+        }
+        return result;
+    }
+    
+        public int update(Account a) {
+        int result = 0;
+        String sql = "update Account set fullname=?, email=?, phone=?, username=?,"
+                + "password=?, role=?, status=? where ID=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, a.getFullname());
+            st.setString(2, a.getEmail());
+            st.setString(3, a.getPhone());
+            st.setString(4, a.getUsername());
+            st.setString(5, a.getPassword());
+            st.setInt(6, a.getRole());
+            st.setInt(7, a.getStatus());
+            st.setInt(8, a.getID());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update account: " + e);
+        }
+        return result;
+    }
+        
+        public int updatePassword(String password, int id) {
+        int result = 0;
+        String sql = "update Account set password=? where ID=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, password);
+            st.setInt(2, id);
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update password account: " + e);
+        }
+        return result;
+    }
+
+    public int updatePersonalUser(Account a) {
+        int result = 0;
+        String sql = "update Account set fullname=?, email=?, phone=?, avatar where ID=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, a.getFullname());
+            st.setString(2, a.getEmail());
+            st.setString(3, a.getPhone());
+            st.setString(4, a.getAvatar());
+            st.setInt(5, a.getID());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update personal account: " + e);
+        }
+        return result;
+    }
+
+    public int updatePersonal(Account a) {
+        int result = 0;
+        String sql = "update Account set fullname=?, email=?, phone=?, username=?,"
+                + "password=?, status=?, avatar=? where ID=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            st.setString(i++, a.getFullname());
+            st.setString(i++, a.getEmail());
+            st.setString(i++, a.getPhone());
+            st.setString(i++, a.getUsername());
+            st.setString(i++, a.getPassword());
+            st.setInt(i++, a.getStatus());
+            st.setString(i++, a.getAvatar());
+            st.setInt(i++, a.getID());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update account personal: " + e);
+        }
+        return result;
     }
 }
