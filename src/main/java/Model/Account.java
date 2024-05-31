@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 
 
 public class Account {
-      private int ID;
+    private int ID;
     private String username;
     private String password;
     private String email;
@@ -24,7 +24,8 @@ public class Account {
     public Account() {
     }
 
-    public Account(int ID, String username, String password, String email, String phone, int status, String fullname, Timestamp date, int role, String roleName, String avatar) {
+    public Account(int ID, String username, String password, String email, String phone,
+            int status, String fullname, Timestamp date, int role, String roleName,String avatar) {
         this.ID = ID;
         this.username = username;
         this.password = password;
@@ -38,12 +39,20 @@ public class Account {
         this.avatar = avatar;
     }
 
+    public String getRoleName() {
+        return roleName;
+    }
+
+    public void setRoleName(String roleType) {
+        this.roleName = roleType;
+    }
+    
     public int getID() {
         return ID;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public void setID(int id) {
+        this.ID = id;
     }
 
     public String getUsername() {
@@ -85,7 +94,7 @@ public class Account {
     public void setStatus(int status) {
         this.status = status;
     }
-
+    
     public String getFullname() {
         return fullname;
     }
@@ -110,14 +119,6 @@ public class Account {
         this.role = role;
     }
 
-    public String getRoleName() {
-        return roleName;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
     public String getAvatar() {
         return avatar;
     }
@@ -125,6 +126,4 @@ public class Account {
     public void setAvatar(String avatar) {
         this.avatar = avatar;
     }
-    
-    
 }

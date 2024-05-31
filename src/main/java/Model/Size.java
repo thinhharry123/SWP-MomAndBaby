@@ -4,10 +4,7 @@
  */
 package Model;
 
-/**
- *
- * @author Admin
- */
+
 public class Size {
 
     private int ID;

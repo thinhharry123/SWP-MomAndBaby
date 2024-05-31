@@ -6,10 +6,6 @@ package Model;
 
 import java.sql.Timestamp;
 
-/**
- *
- * @author Admin
- */
 public class Banner {
 
     private int ID;
