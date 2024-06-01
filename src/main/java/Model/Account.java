@@ -6,7 +6,6 @@ package Model;
 
 import java.sql.Timestamp;
 
-
 public class Account {
     private int ID;
     private String username;
@@ -18,6 +17,7 @@ public class Account {
     private Timestamp date;
     private int role;
     private String roleName;
+    private float balance;
 
     private String avatar;
 
@@ -25,7 +25,20 @@ public class Account {
     }
 
     public Account(int ID, String username, String password, String email, String phone,
-            int status, String fullname, Timestamp date, int role, String roleName,String avatar) {
+            int status, String fullname, Timestamp date, int role, String avatar) {
+        this.ID = ID;
+        this.username = username;
+        this.password = password;
+        this.email = email;
+        this.phone = phone;
+        this.status = status;
+        this.fullname = fullname;
+        this.date = date;
+        this.role = role;
+        this.avatar = avatar;
+    }
+
+    public Account(int ID, String username, String password, String email, String phone, int status, String fullname, Timestamp date, int role, String roleName, float balance, String avatar) {
         this.ID = ID;
         this.username = username;
         this.password = password;
@@ -36,9 +49,20 @@ public class Account {
         this.date = date;
         this.role = role;
         this.roleName = roleName;
+        this.balance = balance;
         this.avatar = avatar;
     }
 
+
+
+    public float getBalance() {
+        return balance;
+    }
+
+    public void setBalance(float balance) {
+        this.balance = balance;
+    }
+    
     public String getRoleName() {
         return roleName;
     }

@@ -79,7 +79,7 @@ public class AccountController extends HttpServlet {
 
     private void getCurrentAccountUpdate(HttpServletRequest request, HttpServletResponse response, int id) {
         try {
-            Account a = accountDao.getAccountById(id);
+            Account a = accountDao.getAccountByID(id);
             if (a != null) {
                 RoleDAO roleDao = new RoleDAO();
                 request.setAttribute("account", a);
@@ -99,7 +99,7 @@ public class AccountController extends HttpServlet {
             HttpSession session = request.getSession();
             String usernameAdmin = (String) session.getAttribute("usernameAdmin");
             RoleDAO roleDao = new RoleDAO();
-            List<Account> accounts = accountDao.allAccount(usernameAdmin);
+            List<Account> accounts = accountDao.allAccount();
             List<Role> roles = roleDao.getRole();
             request.setAttribute("roles", roles);
             request.setAttribute("accounts", accounts);

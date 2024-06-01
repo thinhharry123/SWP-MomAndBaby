@@ -45,7 +45,7 @@ public class AccountDAO {
             String avatar = rs.getString("avatar");
             int role = rs.getInt("role");
             String roleName = rs.getString("roleName");
-            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, roleName,avatar);           
+            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, avatar);           
             return a;
         } catch (Exception e) {
             System.out.println("Get account: " + e);
@@ -54,7 +54,7 @@ public class AccountDAO {
     }//return an Account from a result set
      
      
-    public Account Login(String username){
+    public Account login(String username){
         String sql = "SELECT Account.*,Role.name as roleName "
                 + "FROM [Account] as Account join [Role] as Role "
                 + "ON Account.role = Role.Id "

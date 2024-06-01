@@ -43,7 +43,7 @@ public class LoginController extends HttpServlet {
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             AccountDAO accountDao = new AccountDAO();
-            Account account = accountDao.Login(username);
+            Account account = accountDao.login(username);
             String message = "";
             if (account == null) {
                 message = "Account does not exist";
