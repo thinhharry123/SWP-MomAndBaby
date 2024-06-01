@@ -21,6 +21,9 @@ public class Bill {
     private Timestamp dateOrder;
     private Timestamp dateUpdate;
     private String transactionCode;
+    private int isGetPoint;
+    private float isUsedPoint;
+    private int voucherID;
 
     public Bill() {
     }
@@ -40,6 +43,8 @@ public class Bill {
         this.dateUpdate = dateUpdate;
         this.transactionCode = transactionCode;
     }
+    
+    
 
     public int getID() {
         return ID;
@@ -143,6 +148,30 @@ public class Bill {
 
     public void setTransactionCode(String transactionCode) {
         this.transactionCode = transactionCode;
+    }
+
+    public int getIsGetPoint() {
+        return isGetPoint;
+    }
+
+    public void setIsGetPoint(int isGetPoint) {
+        this.isGetPoint = isGetPoint;
+    }
+
+    public float getIsUsedPoint() {
+        return isUsedPoint;
+    }
+
+    public void setIsUsedPoint(float isUsedPoint) {
+        this.isUsedPoint = isUsedPoint;
+    }
+
+    public int getVoucherID() {
+        return voucherID;
+    }
+
+    public void setVoucherID(int voucherID) {
+        this.voucherID = voucherID;
     }
     
     

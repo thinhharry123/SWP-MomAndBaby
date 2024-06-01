@@ -49,29 +49,29 @@ public class LoginController extends HttpServlet {
                 message = "Account does not exist";
                 this.goToLoginPage(request, response, message);
                 return;
-            }
+            }//check account exist in DB
 
             if (!account.getRoleName().equals("admin")) {
                 message = "Account cannot log in here";
                 this.goToLoginPage(request, response, message);
                 return;
-            }
+            }//Check role for account is admin
             if (!account.getPassword().equals(password)) {
                 message = "Password is not valid";
                 this.goToLoginPage(request, response, message);
                 return;
-            }
+            }//check password 
             if (account.getStatus() != 1) {
                 message = "Your account is locked";
                 this.goToLoginPage(request, response, message);
                 return;
-            }
+            }//check status
             RoleDAO roleDao = new RoleDAO();
             HttpSession session = request.getSession();
             String roleName = roleDao.getRoleById(account.getRole()).getName();
             String fullNameOrUsername = account.getFullname() != null ? account.getFullname() : username;
             session.setAttribute("usernameAdmin", username);
-            session.setAttribute("userRole", roleName);
+            session.setAttribute("userRoleAdmin", roleName);
             response.sendRedirect("/MomAndBaby/admin");
         }
     }

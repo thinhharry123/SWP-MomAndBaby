@@ -16,7 +16,7 @@ public class Feedback {
     private int status;
     private Timestamp datePost;
     private Timestamp dateUpdate;
-
+    private int billID;
     public Feedback() {
     }
 
@@ -30,6 +30,8 @@ public class Feedback {
         this.datePost = datePost;
         this.dateUpdate = dateUpdate;
     }
+   
+
 
     public int getID() {
         return ID;
@@ -93,6 +95,14 @@ public class Feedback {
 
     public void setDateUpdate(Timestamp dateUpdate) {
         this.dateUpdate = dateUpdate;
+    }
+
+    public int getBillID() {
+        return billID;
+    }
+
+    public void setBillID(int billID) {
+        this.billID = billID;
     }
     
     
