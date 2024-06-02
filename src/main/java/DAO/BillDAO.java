@@ -26,23 +26,49 @@ public class BillDAO {
             System.out.println("Connection fails: " + e);
         }
     }
-    public int addBill(Bill b){
-        int result = 0;
-        String sql = "INSERT INTO BILL (accountID, email, customerName, "
-                + "phone, address, detailAddress, total, status, "
-                + "payment, dateOrder, transactionCode, isUsedPoint ";
-        //12 attribute
-        if(b.getVoucherID() >=1 ){
-            sql += ", voucherID";
-//if the user use voucher it'll add that in insert in bill table
+    public Bill getBill(ResultSet result){
+        try{
+            int id = result.getInt("id");
+            int customerID = result.getInt("accountID");
+            String email = result.getString("email");
+            String customerName = result.getString("customerName");
+            String phone = result.getString("phone");
+            String address = result.getString("address");
+            String detailAddress = result.getString("detailAddress");
+            float total = result.getFloat("total");
+            int status = result.getInt("status");
+            int payment = result.getInt("payment");
+            int isGetPoint = result.getInt("isGetPoint");
+            int isUsedPoint = result.getInt("isUsedPoint");
+            Timestamp dateOrder = result.getTimestamp("dateOrder");
+            Timestamp dateUpdate = result.getTimestamp("dateUpdate");
+            String transactionCode = result.getString("transactionCode");
+            Bill bill = new Bill(id, customerID, email, customerName, phone, address, detailAddress, total, status, payment, dateOrder, dateUpdate, transactionCode);
+            bill.setIsGetPoint(isGetPoint);
+            bill.setIsUsedPoint(isUsedPoint);
+            return bill;
+        }catch(SQLException e){
+            System.out.println("Get bill: "+e);
+        }return null;
+    }
+ 
+    
+    public List<Bill> getBillByStatus(int status){
+        List<Bill> bills = new ArrayList<>();
+        String sql = "SELECT * "
+                + "FROM BILL "
+                + "WHERE STATUS = ? "
+                + "ORDER BY id desc";
+        try{
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, status);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                bills.add(this.getBill(rs));
+            }
+        }catch(SQLException e){
+            System.out.println("Get bill by status: "+e);
         }
-        
-        sql += ") values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?";
-        //12 ? for 12 value
-        if(b.getVoucherID() >=1 ){
-            sql += ", ?";
-        }
-        sql += ")";
-        return 0;
+        return bills;
     }
 }

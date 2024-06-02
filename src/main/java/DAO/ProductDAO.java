@@ -170,5 +170,17 @@ public class ProductDAO {
         }
         return result;
     }
-
+     public List<Product> getTopFiveProduct() {
+        List<Product> products = new ArrayList<>();
+        String sql = "select top 5 * from product where sold > 0 order by sold desc";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+        }
+        return products;
+    }
 }

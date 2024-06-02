@@ -66,6 +66,7 @@ public class LoginController extends HttpServlet {
                 this.goToLoginPage(request, response, message);
                 return;
             }//check status
+            log("u: "+username +"p: "+ password);
             RoleDAO roleDao = new RoleDAO();
             HttpSession session = request.getSession();
             String roleName = roleDao.getRoleById(account.getRole()).getName();
