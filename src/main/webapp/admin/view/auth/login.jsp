@@ -2,7 +2,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-    <base href="http://localhost:8080/MomAndBaby/" />
+    <base href="http://localhost:8080/SWP391-MomAndBaby/" />
     <title>Login | Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -20,7 +20,7 @@
     <div class="log-w3" >
         <div class="w3layouts-main">
             <h2>Sign In Now</h2>
-            <form action="/MomAndBaby/admin/login" method="post">
+            <form action="/SWP391-MomAndBaby/admin/login" method="post">
                 <input type="text" class="ggg" name="username" placeholder="USERNAME" required>
                 <input type="password" class="ggg" name="password" placeholder="PASSWORD" required>
                 <h6><a href="/admin/forget-password">Forgot Password?</a></h6>

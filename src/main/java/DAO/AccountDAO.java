@@ -31,8 +31,7 @@ public class AccountDAO {
         }
     }//initialize conn,try to connect to database, return error if fail
     
-
-    private Account getAccount(ResultSet rs) {
+   private Account getAccount(ResultSet rs) {
         try {
             int id = rs.getInt("ID");
             String username = rs.getString("username");
@@ -45,33 +44,36 @@ public class AccountDAO {
             String avatar = rs.getString("avatar");
             int role = rs.getInt("role");
             String roleName = rs.getString("roleName");
-            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, avatar);           
+            float balance = rs.getFloat("balance");
+            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, avatar);
+            a.setBalance(balance);
+            a.setRoleName(roleName);
             return a;
         } catch (Exception e) {
             System.out.println("Get account: " + e);
         }
         return null;
-    }//return an Account from a result set
+    }
+//return an Account from a result set
      
      
-    public Account login(String username){
-        String sql = "SELECT Account.*,Role.name as roleName "
-                + "FROM [Account] as Account join [Role] as Role "
-                + "ON Account.role = Role.Id "
-                + "WHERE username = ? and Account.status = 1 and Role.status=1 ";
-        try{
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, username);
-            ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+ public Account login(String username) {
+        String sql = "SELECT Account.*, Role.name as roleName "
+                + "FROM [Account] as Account "
+                + "JOIN [Role] as Role on Account.role = Role.Id "
+                + "where username=? and Account.status = 1 and Role.status=1";
+        try {
+            PreparedStatement st = conn.prepareCall(sql);
+            st.setString(1, username);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) {
                 return this.getAccount(rs);
             }
-            
-        }catch(Exception e){
+        } catch (Exception e) {
             System.out.println("Login: " + e);
         }
         return null;
-    }//Return an Account based on the username
+    }
   
     public Account getAccountByUsername(String username){
         String sql = "SELECT Account.*,Role.name as roleName "

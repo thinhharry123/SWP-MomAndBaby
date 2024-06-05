@@ -8,6 +8,10 @@
         <servlet-name>DashboardController</servlet-name>
         <servlet-class>Controllers.Admin.DashboardController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.LoginStaffController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/admin/login</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>DashboardController</servlet-name>
         <url-pattern>/admin</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginStaffController</servlet-name>
+        <url-pattern>/staff/login</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

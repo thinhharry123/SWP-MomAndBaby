@@ -1,3 +1,7 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 
 package Controllers.Admin;
 
@@ -49,34 +53,32 @@ public class LoginController extends HttpServlet {
                 message = "Account does not exist";
                 this.goToLoginPage(request, response, message);
                 return;
-            }//check account exist in DB
+            }
 
             if (!account.getRoleName().equals("admin")) {
                 message = "Account cannot log in here";
                 this.goToLoginPage(request, response, message);
                 return;
-            }//Check role for account is admin
+            }
             if (!account.getPassword().equals(password)) {
                 message = "Password is not valid";
                 this.goToLoginPage(request, response, message);
                 return;
-            }//check password 
+            }
             if (account.getStatus() != 1) {
                 message = "Your account is locked";
                 this.goToLoginPage(request, response, message);
                 return;
-            }//check status
-            log("u: "+username +"p: "+ password);
+            }
             RoleDAO roleDao = new RoleDAO();
             HttpSession session = request.getSession();
             String roleName = roleDao.getRoleById(account.getRole()).getName();
             String fullNameOrUsername = account.getFullname() != null ? account.getFullname() : username;
             session.setAttribute("usernameAdmin", username);
             session.setAttribute("userRoleAdmin", roleName);
-            response.sendRedirect("/MomAndBaby/admin");
+            response.sendRedirect("/SWP391-MomAndBaby/admin");//this should be /SWP391-MomAndBaby/admin
         }
     }
-    
     private void goToLoginPage(HttpServletRequest request, HttpServletResponse response, String message) {
         try {
             request.setAttribute("message", message);
