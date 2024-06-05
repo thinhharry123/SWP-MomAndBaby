@@ -5,16 +5,25 @@
 package Controllers.Staff;
 
 import DAO.AccountDAO;
-import DAO.RoleDAO;
-import Model.Account;
+import DAO.BillDAO;
+import DAO.CategoryDAO;
+import DAO.FeedbackDAO;
+import DAO.ProducerDAO;
+import DAO.ProductDAO;
+import Model.Bill;
+import Model.Category;
+import Model.Feedback;
+import Model.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.HttpSession;
-public class LoginStaffController extends HttpServlet {
+import java.util.List;
+
+
+public class StaffController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,10 +42,10 @@ public class LoginStaffController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginStaffController</title>");            
+            out.println("<title>Servlet StaffController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginStaffController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet StaffController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -54,7 +63,32 @@ public class LoginStaffController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/staff/view/auth/login.jsp").forward(request, response);
+        String path = request.getRequestURI();
+        if (path.endsWith("/staff")) {
+//            AccountDAO accountDao = new AccountDAO();
+//            ProductDAO productDao = new ProductDAO();
+//            CategoryDAO categoryDao = new CategoryDAO();
+//            ProducerDAO producerDao = new ProducerDAO();
+//            BillDAO billDao = new BillDAO();
+//            FeedbackDAO feedbackDao = new FeedbackDAO();
+//            List<Category> categories = categoryDao.allCategory();
+//            List<Bill> newBills = billDao.getBillByStatus(1);
+//            List<Feedback> feedbacks = feedbackDao.allFeedbackByNew();
+//            int numberOfAccount = accountDao.allAccountByStaff().size();
+//            int numberOfProduct = productDao.getAll().size();
+//            int numberOfProducer = producerDao.allProducer().size();
+//            int numberOfCategory = categories.size();
+//            List<Product> topFiveProduct = productDao.getTopFiveProduct();
+//            request.setAttribute("feedbacks", feedbacks);
+//            request.setAttribute("newBills", newBills);
+//            request.setAttribute("categories", categories);
+//            request.setAttribute("numberOfProduct", numberOfProduct);
+//            request.setAttribute("numberOfAccount", numberOfAccount);
+//            request.setAttribute("numberOfCategory", numberOfCategory);
+//            request.setAttribute("numberOfProducer", numberOfProducer);
+//            request.setAttribute("topFiveProduct", topFiveProduct);
+        request.getRequestDispatcher("/staff/view/home/home.jsp").forward(request, response);
+        }
     }
 
     /**
@@ -68,51 +102,9 @@ public class LoginStaffController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        if (request.getParameter("login") != null) {
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            AccountDAO accountDao = new AccountDAO();
-            Account a = accountDao.login(username);
-            String message = "";
-            if(a == null){
-                message="Account does not exist";
-                this.goToLoginPage(request, response, message);
-                return ;
-            
-            }
-            if(!a.getRoleName().equals("staff")&&!a.getRoleName().equals("admin")){
-                message="Account cannot log in here";
-                this.goToLoginPage(request, response, message);
-                return;
-                
-            }if(!a.getPassword().equals(password)){
-                message="Password is not valid";
-                this.goToLoginPage(request, response, message);
-                return;
-            }if(a.getStatus()!=1){
-                message="Your account is lock";
-                this.goToLoginPage(request, response, message);
-                return;
-            }
-                        RoleDAO roleDao = new RoleDAO();
-            HttpSession session = request.getSession();
-            String roleName = roleDao.getRoleById(a.getRole()).getName();
-            String fullNameOrUsername = a.getFullname() != null ? a.getFullname() : username;
-            session.setAttribute("usernameStaff", username);
-            session.setAttribute("userRoleStaff", "staff");
-            response.sendRedirect("/SWP391-MomAndBaby/staff");
-        }
+        processRequest(request, response);
     }
 
-    
-    private void goToLoginPage(jakarta.servlet.http.HttpServletRequest request, jakarta.servlet.http.HttpServletResponse response, String message) {
-        try {
-            request.setAttribute("message", message);
-            request.getRequestDispatcher("/staff/view/auth/login.jsp").forward(request, response);
-        } catch (Exception e) {
-            System.out.println("Go to login page: " + e);
-        }
-    }
     /**
      * Returns a short description of the servlet.
      *
