@@ -8,9 +8,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+
 public class DBConnection {
-    private static final String urlConnect = "jdbc:sqlserver://DESKTOP-620MRI6:1433;databasename=database_mom_baby;"
-            + "user=sa;password=12345;characterEncoding=UTF-8;encrypt=true;trustServerCertificate=true;";
+    private static final String urlConnect = "jdbc:sqlserver://localhost:1433;databaseName=database_mom_baby;user=sa;password=12345;characterEncoding=UTF-8;encrypt=true;trustServerCertificate=true;";
     public static Connection connect() {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
