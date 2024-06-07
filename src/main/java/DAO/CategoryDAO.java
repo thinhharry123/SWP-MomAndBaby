@@ -15,10 +15,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author Admin
- */
 public class CategoryDAO {
 
     private Connection conn;
@@ -332,5 +328,19 @@ public class CategoryDAO {
         } catch (SQLException e) {
         }
         return categories;
+    }
+      public Category getCategoryByName(String name) {
+        String sql = "select * from Category where name = ?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, name);
+            ResultSet result = st.executeQuery();
+            if (result.next()) {
+                return this.getCategory(result);
+            }
+        } catch (SQLException er) {
+            System.out.println("Get category by name: " + er);
+        }
+        return null;
     }
 }
