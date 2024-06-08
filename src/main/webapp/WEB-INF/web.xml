@@ -40,6 +40,14 @@
         <servlet-name>LoginUserController</servlet-name>
         <url-pattern>/login</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AccountController</servlet-name>
+        <servlet-class>Controllers.Admin.AccountController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountController</servlet-name>
+        <url-pattern>/admin/account/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
