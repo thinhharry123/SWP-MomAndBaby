@@ -45,16 +45,16 @@ public class AccountController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getRequestURI();
         Validation validate = new Validation();
-        if (path.endsWith("/MomAndBaby/admin/account")) {
+        if (path.endsWith("/SWP391-MomAndBaby/admin/account")) {
             this.showAllAccount(request, response);
         } else {
             String paths[] = path.split("/");
             int id = validate.getInt(paths[paths.length - 1]);
-            if (path.startsWith("/MomAndBaby/admin/account/update/")) {
+            if (path.startsWith("/SWP391-MomAndBaby/admin/account/update/")) {
                 this.getCurrentAccountUpdate(request, response, id);
-            } else if (path.startsWith("/MomAndBaby/admin/account/delete/")) {
+            } else if (path.startsWith("/SWP391-MomAndBaby/admin/account/delete/")) {
                 this.deleteAccount(request, response, id);
-            } else if (path.startsWith("/MomAndBaby/admin/account/personal/")) {
+            } else if (path.startsWith("/SWP391-MomAndBaby/admin/account/personal/")) {
                 this.getCurrentAccountUpdatePersonal(request, response, paths[paths.length - 1]);
             }
         }
@@ -70,7 +70,7 @@ public class AccountController extends HttpServlet {
                 request.setAttribute("account", a);
                 request.getRequestDispatcher("/admin/view/account/updateAccountPersonal.jsp").forward(request, response);
             } else {
-                response.sendRedirect("/MomAndBaby/admin/404");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/404");
             }
         } catch (Exception e) {
             System.out.println("Get current account update: " + e);
@@ -87,7 +87,7 @@ public class AccountController extends HttpServlet {
                 request.setAttribute("roles", roles);
                 request.getRequestDispatcher("/admin/view/account/updateAccount.jsp").forward(request, response);
             } else {
-                response.sendRedirect("/MomAndBaby/admin/404");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/404");
             }
         } catch (Exception e) {
             System.out.println("Get current account update: " + e);
@@ -112,7 +112,7 @@ public class AccountController extends HttpServlet {
     private void deleteAccount(HttpServletRequest request, HttpServletResponse response, int id) {
         try {
             int result = accountDao.delete(id);
-            String url = "/MomAndBaby/admin/account?act=delete&status=" + result;
+            String url = "/SWP391-MomAndBaby/admin/account?act=delete&status=" + result;
             response.sendRedirect(url);
         } catch (Exception e) {
             System.out.println("Delete account: " + e);
@@ -170,7 +170,7 @@ public class AccountController extends HttpServlet {
                     type_message = 2;
                 }
             }
-            response.sendRedirect("/MomAndBaby/admin/account?act=add-new&status=" + type_message);
+            response.sendRedirect("/SWP391-MomAndBaby/admin/account?act=add-new&status=" + type_message);
         } catch (Exception e) {
             System.out.println("Add new admin: " + e);
         }
@@ -204,7 +204,7 @@ public class AccountController extends HttpServlet {
             } else {
                 type_message = 2;
             }
-            String url = "/MomAndBaby/admin/account?act=update-account&status=" + type_message;
+            String url = "/SWP391-MomAndBaby/admin/account?act=update-account&status=" + type_message;
             response.sendRedirect(url);
         } catch (Exception e) {
             System.out.println("Update account: " + e);
@@ -251,7 +251,7 @@ public class AccountController extends HttpServlet {
             } else {
                 type_message = 2;
             }
-            String url = "/MomAndBaby/admin?act=update-account&status=" + type_message;
+            String url = "/SWP391-MomAndBaby/admin?act=update-account&status=" + type_message;
             response.sendRedirect(url);
         } catch (Exception e) {
             System.out.println("Update account personal: " + e);
@@ -264,7 +264,7 @@ public class AccountController extends HttpServlet {
             String ids[] = request.getParameterValues("delete-account-item");
             boolean isDelete = false;
             if (ids == null) {
-                response.sendRedirect("/MomAndBaby/admin/account?act=delete&status=2");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/account?act=delete&status=2");
                 return;
             }
             for (String id : ids) {
@@ -273,7 +273,7 @@ public class AccountController extends HttpServlet {
                     isDelete = true;
                 }
             }
-            String url = "/MomAndBaby/admin?act=delete&status=";
+            String url = "/SWP391-MomAndBaby/admin?act=delete&status=";
             if (isDelete) {
                 url += 1;
             } else {
