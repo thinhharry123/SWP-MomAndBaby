@@ -31,31 +31,7 @@ public class AccountDAO {
         }
     }//initialize conn,try to connect to database, return error if fail
     
-   private Account getAccount(ResultSet rs) {
-        try {
-            int id = rs.getInt("ID");
-            String username = rs.getString("username");
-            String password = rs.getString("password");
-            String email = rs.getString("email");
-            String phone = rs.getString("phone");
-            String fullname = rs.getString("fullname");
-            Timestamp datePost = rs.getTimestamp("date");
-            int status = rs.getInt("status");
-            String avatar = rs.getString("avatar");
-            int role = rs.getInt("role");
-            String roleName = rs.getString("roleName");
-            float balance = rs.getFloat("balance");
-            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, avatar);
-            a.setBalance(balance);
-            a.setRoleName(roleName);
-            return a;
-        } catch (Exception e) {
-            System.out.println("Get account: " + e);
-        }
-        return null;
-    }
-//return an Account from a result set
-     
+
      
  public Account login(String username) {
         String sql = "SELECT Account.*, Role.name as roleName "
@@ -283,4 +259,30 @@ public class AccountDAO {
         }
         return result;
     }
+ private Account getAccount(ResultSet rs) {
+        try {
+            int id = rs.getInt("ID");
+            String username = rs.getString("username");
+            String password = rs.getString("password");
+            String email = rs.getString("email");
+            String phone = rs.getString("phone");
+            String fullname = rs.getString("fullname");
+            Timestamp datePost = rs.getTimestamp("date");
+            int status = rs.getInt("status");
+            String avatar = rs.getString("avatar");
+            int role = rs.getInt("role");
+            String roleName = rs.getString("roleName");
+            float balance = rs.getFloat("balance");
+            Account a = new Account(id, username, password, email, phone, status, fullname, datePost, role, avatar);
+            a.setBalance(balance);
+            a.setRoleName(roleName);
+            return a;
+        } catch (Exception e) {
+            System.out.println("Get account: " + e);
+        }
+        return null;
+    }
+
+//return an Account from a result set
+     
 }
