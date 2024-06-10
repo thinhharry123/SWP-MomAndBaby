@@ -90,33 +90,33 @@ public class ProductController extends HttpServlet {
             throws ServletException, IOException {
         String path = request.getRequestURI();
         Validation validate = new Validation();
-        if (path.endsWith("/MomAndBaby/admin/product")) {
+        if (path.endsWith("/SWP391-MomAndBaby/admin/product")) {
             this.showAllProduct(request, response);
         } else {
             String paths[] = path.split("/");
             int id = validate.getInt(paths[paths.length - 1]);
-            if (path.startsWith("/MomAndBaby/admin/product/update/")) {
+            if (path.startsWith("/SWP391-MomAndBaby/admin/product/update/")) {
                 boolean isUpdate = this.getCurrentProductUpdate(request, response, id);
                 if (isUpdate) {
                     request.getRequestDispatcher("/admin/view/product/updateProduct.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect("/MomAndBaby/admin/404");
+                    response.sendRedirect("/SWP391-MomAndBaby/admin/404");
                 }
-            } else if (path.startsWith("/MomAndBaby/admin/product/view/")) {
+            } else if (path.startsWith("/SWP391-MomAndBaby/admin/product/view/")) {
                 boolean isView = this.getCurrentProductUpdate(request, response, id);
                 if (isView) {
                     request.getRequestDispatcher("/admin/view/product/detailProduct.jsp").forward(request, response);
                 } else {
-                    response.sendRedirect("/MomAndBaby/admin/404");
+                    response.sendRedirect("/SWP391-MomAndBaby/admin/404");
                 }
-            } else if (path.startsWith("/MomAndBaby/admin/product/comment/")) {
+            } else if (path.startsWith("/SWP391-MomAndBaby/admin/product/comment/")) {
 //                boolean isView = this.getCurrentProductComment(request, response, slug);
 //                if (isView) {
 //                    request.getRequestDispatcher("/admin/view/product/commentProduct.jsp").forward(request, response);
 //                } else {
-//                    response.sendRedirect("/MomAndBaby/admin/404");
+//                    response.sendRedirect("/SWP391-MomAndBaby/admin/404");
 //                }
-            } else if (path.startsWith("/MomAndBaby/admin/product/delete/")) {
+            } else if (path.startsWith("/SWP391-MomAndBaby/admin/product/delete/")) {
                 this.deleteProduct(request, response, id);
             }
         }
@@ -183,7 +183,7 @@ public class ProductController extends HttpServlet {
                 String pathUploadDesc = getServletContext().getRealPath("./uploads/descriptions/");
                 imgDao.delete(product.getID());
             }
-            String url = "/MomAndBaby/admin/product?act=delete&status=";
+            String url = "/SWP391-MomAndBaby/admin/product?act=delete&status=";
             if (resultDelete >= 1) {
                 url += 1;
             } else {
@@ -228,7 +228,7 @@ public class ProductController extends HttpServlet {
             float oldPrice = Float.parseFloat(request.getParameter("oldPrice"));
             float newPrice = Float.parseFloat(request.getParameter("newPrice"));
             if(newPrice >= oldPrice) {
-                response.sendRedirect("/MomAndBaby/admin/product?act=add-new-product&status=2");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/product?act=add-new-product&status=2");
                 return;
             }
             int quantity = validate.getInt(request.getParameter("quantity"));
@@ -261,7 +261,7 @@ public class ProductController extends HttpServlet {
             if (curentIdProduct > 0) {
                 statusResponse = 1;
             }
-            String url = "/MomAndBaby/admin/product?act=add-new-product&status=" + statusResponse;
+            String url = "/SWP391-MomAndBaby/admin/product?act=add-new-product&status=" + statusResponse;
             response.sendRedirect(url);
         } catch (Exception e) {
             System.out.println("Insert product: " + e);
@@ -281,7 +281,7 @@ public class ProductController extends HttpServlet {
             float oldPrice = Float.parseFloat(request.getParameter("oldPrice"));
             float newPrice = Float.parseFloat(request.getParameter("newPrice"));
             if(newPrice >= oldPrice) {
-                response.sendRedirect("/MomAndBaby/admin/product?act=update-product&status=2");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/product?act=update-product&status=2");
                 return;
             }
             int quantity = validate.getInt(request.getParameter("quantity"));
@@ -312,7 +312,7 @@ public class ProductController extends HttpServlet {
             if (statusUpdate > 0) {
                 statusResponse = 1;
             }
-            String url = "/MomAndBaby/admin/product?act=update-product&status=" + statusResponse;
+            String url = "/SWP391-MomAndBaby/admin/product?act=update-product&status=" + statusResponse;
             response.sendRedirect(url);
         } catch (Exception e) {
             System.out.println("Update product: " + e);
@@ -354,7 +354,7 @@ public class ProductController extends HttpServlet {
             Upload upload = new Upload();
             String[] listDeleteProduct = request.getParameterValues("delete-product-item");
             if(listDeleteProduct == null) {
-                response.sendRedirect("/MomAndBaby/admin/product?act=delete&status=0");
+                response.sendRedirect("/SWP391-MomAndBaby/admin/product?act=delete&status=0");
                 return;
             }
             boolean isDelete = false;
@@ -371,7 +371,7 @@ public class ProductController extends HttpServlet {
                     imgDao.delete(product.getID());
                 }
             }
-            String url = "/MomAndBaby/admin/product?act=delete&status=";
+            String url = "/SWP391-MomAndBaby/admin/product?act=delete&status=";
             if (isDelete) {
                 url += 1;
             } else {

@@ -56,6 +56,14 @@
         <servlet-name>CategoryController</servlet-name>
         <url-pattern>/admin/category/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controllers.Admin.ProductController</servlet-class>
+    </servlet>
+     <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/admin/product/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
