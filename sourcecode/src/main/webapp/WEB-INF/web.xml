@@ -60,9 +60,17 @@
         <servlet-name>ProductController</servlet-name>
         <servlet-class>Controllers.Admin.ProductController</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>ProductController</servlet-name>
         <url-pattern>/admin/product/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BrandController</servlet-name>
+        <servlet-class>Controllers.Admin.BrandController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BrandController</servlet-name>
+        <url-pattern>/admin/brand/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

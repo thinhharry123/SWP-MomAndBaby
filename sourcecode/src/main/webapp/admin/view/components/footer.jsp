@@ -8,7 +8,7 @@
                 let date = new Date();
                 document.write(date.getFullYear());
             </script>
-            | Design by <a href="/MomAndBaby/admin"> Group 8</a></p>
+            | Design by <a href="/SWP391-MomAndBaby/admin"> Group 8</a></p>
     </div>
 </div>
 <!-- / footer -->
