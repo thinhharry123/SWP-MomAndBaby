@@ -24,6 +24,10 @@
         <servlet-name>CategoryController</servlet-name>
         <servlet-class>Controllers.Admin.CategoryController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProducerController</servlet-name>
+        <servlet-class>Controllers.Admin.ProducerController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/admin/login</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>BrandController</servlet-name>
         <url-pattern>/admin/brand/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProducerController</servlet-name>
+        <url-pattern>/admin/producer/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

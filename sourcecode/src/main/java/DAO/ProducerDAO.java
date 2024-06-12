@@ -63,6 +63,21 @@ public class ProducerDAO {
         return null;
     }
 
+        public Producer getProducerByName(String name) {
+        String sql = "select * from Producer where name = ?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, name);
+            ResultSet result = st.executeQuery();
+            if (result.next()) {
+                return this.getProducer(result);
+            }
+        } catch (SQLException e) {
+            System.out.println("Get producer by name: " + e);
+        }
+        return null;
+    }
+        
     public int getNumberProductByProducer(int id) {
         String sql = "select count(id) as numberProduct from Product where producerID =?";
         try {
