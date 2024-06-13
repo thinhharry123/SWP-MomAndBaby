@@ -14,10 +14,6 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-/**
- *
- * @author HP
- */
 public class ContactController extends HttpServlet {
    
     /** 
@@ -77,7 +73,7 @@ public class ContactController extends HttpServlet {
             Email e = new Email();
             TemplateEmail temp = new TemplateEmail();
             String messageContact = temp.sendContactMessage(fullname, email, phone, message);
-            String emailAdmin = "DatTVTSE182959@fpt.edu.vn";
+            String emailAdmin = "tiendat204.tranvan@gmail.com";
             boolean isSend = e.sendEmail(emailAdmin,"Contact user", messageContact, null);
             int index = 0;
             while(!isSend && index < 5) {

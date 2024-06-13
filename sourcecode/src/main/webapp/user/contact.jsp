@@ -75,6 +75,7 @@
                         padding: 20px;
                         margin-bottom: 60px;
                         border-radius: 10px;
+                        width: 50%;
                         "
                         >
                         <div class="row">
@@ -85,6 +86,7 @@
                                     type="text"
                                     name="fullname"
                                     placeholder="Your Name"
+                                    style="width: 50%"
                                     />
                                 <span class="message_error"></span>
 
@@ -96,6 +98,7 @@
                                     type="email"
                                     name="email"
                                     placeholder="Email"
+                                    style="width: 50%"
                                     />
                                 <span class="message_error"></span>
                             </div>
@@ -106,6 +109,7 @@
                                     type="tel"
                                     name="phone"
                                     placeholder="Phone number"
+                                    style="width: 50%"
                                     />
                                 <span class="message_error"></span>
                             </div>
@@ -116,7 +120,7 @@
                                 class="input"
                                 name="message"
                                 placeholder="Your Massage"
-                                style="height: 150px"
+                                style="height: 150px; width: 50%"
                                 ></textarea>
                             <span class="message_error"></span>
                         </div>
