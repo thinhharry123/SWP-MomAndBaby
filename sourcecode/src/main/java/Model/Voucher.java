@@ -4,15 +4,11 @@
  */
 package Model;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
-/**
- *
- * @author Admin
- */
 public class Voucher {
 
-    private int ID;
+    private int Id;
 
     private String name;
 
@@ -20,9 +16,9 @@ public class Voucher {
 
     private float value;
 
-    private Date start;
+    private Timestamp start;
 
-    private Date end;
+    private Timestamp end;
 
     private int status;
 
@@ -33,8 +29,8 @@ public class Voucher {
     public Voucher() {
     }
 
-    public Voucher(int ID, String name, String code, float value, Date start, Date end, int status, float limit) {
-        this.ID = ID;
+    public Voucher(int ID, String name, String code, float value, Timestamp start, Timestamp end, int status, float limit) {
+        this.Id = ID;
         this.name = name;
         this.code = code;
         this.value = value;
@@ -44,21 +40,12 @@ public class Voucher {
         this.limit = limit;
     }
 
-    public int getUsed() {
-        return used;
-    }
-
-    public void setUsed(int used) {
-        this.used = used;
-    }
-
-    // Getters and Setters
     public int getId() {
-        return ID;
+        return Id;
     }
 
-    public void setId(int id) {
-        this.ID = id;
+    public void setId(int ID) {
+        this.Id = ID;
     }
 
     public String getName() {
@@ -85,19 +72,19 @@ public class Voucher {
         this.value = value;
     }
 
-    public Date getStart() {
+    public Timestamp getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(Timestamp start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public Timestamp getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(Timestamp end) {
         this.end = end;
     }
 
@@ -105,15 +92,24 @@ public class Voucher {
         return status;
     }
 
-    public void setStatus(byte status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 
-    public Float getLimit() {
+    public float getLimit() {
         return limit;
     }
 
-    public void setLimit(Float limit) {
+    public void setLimit(float limit) {
         this.limit = limit;
     }
+
+    public int getUsed() {
+        return used;
+    }
+
+    public void setUsed(int used) {
+        this.used = used;
+    }
+
 }

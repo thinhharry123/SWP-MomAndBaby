@@ -28,6 +28,10 @@
         <servlet-name>ProducerController</servlet-name>
         <servlet-class>Controllers.Admin.ProducerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>Controller.user.ContactController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/admin/login</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>ProducerController</servlet-name>
         <url-pattern>/admin/producer/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
