@@ -25,7 +25,24 @@ public class ProductDAO {
             System.out.println("Connection fail: " + e);
         }
     }
-
+ public List<Product> getProductByPriority(int status) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select top 7 pro.* from product as pro join category as c on c.id = pro.categoryID"
+                + " join producer as p on p.id = pro.producerID join Brand as br on br.ID = pro.brandID"
+                + " where pro.status = 1 and "
+                + "pro.priority=? and p.status=1 and c.status=1 and br.status =1 order by id desc";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, status);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("Get priority product: " + e);
+        }
+        return products;
+    }
      //admin start
      
       public Product getProduct(ResultSet rs) {
