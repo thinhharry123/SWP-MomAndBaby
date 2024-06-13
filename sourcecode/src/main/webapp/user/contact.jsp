@@ -33,6 +33,7 @@
                     padding: 20px;
                     margin-bottom: 60px;
                     border-radius: 10px;
+                    background-color: lightblue;
                     "
                     >
                     <div class="product-btns" style="margin-bottom: 20px">
@@ -76,6 +77,7 @@
                         margin-bottom: 60px;
                         border-radius: 10px;
                         width: 50%;
+                        background-color: lightblue;
                         "
                         >
                         <div class="row">

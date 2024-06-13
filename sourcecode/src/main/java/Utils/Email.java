@@ -7,7 +7,6 @@ package Utils;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.Properties;
-
 import jakarta.mail.Authenticator;
 import jakarta.mail.Message;
 import jakarta.mail.PasswordAuthentication;

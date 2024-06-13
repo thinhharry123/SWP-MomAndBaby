@@ -8,7 +8,6 @@ package DAO;
 import DBConnection.DBConnection;
 import Model.Voucher;
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,10 +15,6 @@ import java.sql.Timestamp;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
 public class VoucherDAO {
 private Connection conn;
 
