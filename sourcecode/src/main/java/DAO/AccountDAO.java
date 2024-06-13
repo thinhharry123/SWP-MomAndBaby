@@ -2,13 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-
-// Test commit
-// Test conflict from Someone
-
 package DAO;
-
 
 import Model.Account;
 import java.sql.Connection;
@@ -20,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AccountDAO {
-    
+
     private Connection conn;
 
     public AccountDAO() {
@@ -29,15 +23,27 @@ public class AccountDAO {
         } catch (Exception e) {
             System.out.println("Connection fail: " + e);
         }
-    }//initialize conn,try to connect to database, return error if fail
+    }
     
+    public Account getAccountByUsername(String username) {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on A.role = R.Id "
+                + "where username=? and A.status = 1 and R.status=1";
+        try {
+            PreparedStatement st = conn.prepareCall(sql);
+            st.setString(1, username);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) {
+                return this.getAccount(rs);
+            }
+        } catch (Exception e) {
+            System.out.println("getAccountByUsername: " + e);
+        }
+        return null;
+    }
 
-     
- public Account login(String username) {
-        String sql = "SELECT Account.*, Role.name as roleName "
-                + "FROM [Account] as Account "
-                + "JOIN [Role] as Role on Account.role = Role.Id "
-                + "where username=? and Account.status = 1 and Role.status=1";
+    public Account login(String username) {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on A.role = R.Id "
+                + "where username=? and A.status = 1 and R.status=1";
         try {
             PreparedStatement st = conn.prepareCall(sql);
             st.setString(1, username);
@@ -50,106 +56,71 @@ public class AccountDAO {
         }
         return null;
     }
-  
-    public Account getAccountByUsername(String username){
-        String sql = "SELECT Account.*,Role.name as roleName "
-                + "FROM [Account] as Account join [Role] as Role "
-                + "ON Account.role = Role.Id "
-                + "WHERE username = ? and Account.status = 1 and Role.status=1 ";
-        
-        try{
-            PreparedStatement pst = conn.prepareStatement(sql);
-            pst.setString(1, username);
-            ResultSet rs = pst.executeQuery();
-            if(rs.next()){
+
+    public Account isExistAccount(String username, String email) {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on A.role = R.ID where (username=? or email=?)";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, username);
+            st.setString(2, email);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()) {
                 return this.getAccount(rs);
             }
-        }catch(Exception e){
-            System.out.println("getAccountByUsername: "+e);
+        } catch (SQLException e) {
+            System.out.println("Is exist admin by username, email: " + e);
         }
         return null;
-    }//pretty much the same as above
-    
-    public Account isExistAccount(String username, String email){
-        String sql = "SELECT Account.* ,Role.name "
-                + "FROM [Account] as Account "
-                + "JOIN [Role] as Role "
-                + "ON Account.role = Role.ID "
-                + "WHERE (username = ? or email = ?)";
-    try{
-        PreparedStatement st = conn.prepareStatement(sql);
-        st.setString(1, username);
-        st.setString(2, email);
-        ResultSet rs = st.executeQuery();
-        while(rs.next()){
-            return this.getAccount(rs);
-        }
-    }catch(SQLException e){
-        System.out.println("Admin check exist account by username,email: "+e);
     }
-        return null;
-    }
-    //get account based on username or email
     
-    public Account getAccountByID(int id){
-        String sql= "SELECT Account.* ,Role.name as roleName "
-                + "FROM [Account] as Account "
-                + "JOIN [Role] as Role "
-                + "ON Account.role = Role.ID "
-                + "WHERE Account.ID = ? ";
-        try{
+    public Account getAccountById(int id) {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on A.role = R.ID where A.ID=?";
+        try {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            if(rs.next()) {
                 return this.getAccount(rs);
             }
-        }catch(SQLException e){
-            System.out.println("Get account by id: "+e);
+        } catch (SQLException e) {
+            System.out.println("Get account by id: " + e);
         }
         return null;
-    }//get account based on id
-    
-    public List<Account>allAccount(){
-        String sql = "SELECT Account.*, Role.name as roleName "
-                + "FROM [Account] as Account "
-                + "JOIN [Role] as Role "
-                + "ON Role.ID = Account.role "
-                + "ORDER BY Account.role desc, Account.id desc ";
-        try{
+    }
+
+    public List<Account> allAccount(String username) {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on R.id = A.role order by A.role desc, A.id desc";
+        try {
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            List <Account> accounts = new ArrayList<>();
-            while(rs.next()){
-                accounts.add(this.getAccount(rs));
-            }
-        }catch(SQLException e){
-            System.out.println("Get all account: "+e);
-        }
-        return null;
-    }//get all account 
-    
-    public List<Account> allAccountByStaff(){
-        String sql = "SELECT Account.*, Role.name as roleName "
-                + "FROM [Account] as Account "
-                + "JOIN [Role] as Role "
-                + "ON Role.ID = Account.role "
-                + "WHERE Role.name = 'user' "
-                + "ORDER BY Account.role desc, Account.id desc ";
-        try{
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery();
-            List <Account> accounts = new ArrayList<>();
-            while(rs.next()){
+            List<Account> accounts = new ArrayList<>();
+            while (rs.next()) {
                 accounts.add(this.getAccount(rs));
             }
             return accounts;
-        }catch(SQLException e){
-            System.out.println("Get all account: "+e);
+        } catch (SQLException er) {
+            System.out.println("Get all account: " + er);
         }
         return null;
-    }//get all user account
+    }
     
+    public List<Account> allAccountByStaff() {
+        String sql = "select A.*, R.name as roleName from [Account] as A join [Role] as R on R.id = A.role"
+                + " where R.name = 'user' order by A.role desc, A.id desc";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            List<Account> accounts = new ArrayList<>();
+            while (rs.next()) {
+                accounts.add(this.getAccount(rs));
+            }
+            return accounts;
+        } catch (SQLException er) {
+            System.out.println("Get all account: " + er);
+        }
+        return null;
+    }
+
     public int insert(Account a) {
         int result = 0;
         String sql = "INSERT INTO Account (fullname, email, phone, username, password, role, date, status, avatar) "
@@ -173,41 +144,21 @@ public class AccountDAO {
         return result;
     }
     
-    public int delete(int id){
+    public int updateBalance(float balance, int id) {
         int result = 0;
-        String sql = "delete from Account where id=?";
+        String sql = "update Account set balance=? where ID=?";
         try {
             PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, id);
-            result = st.executeUpdate();
-        } catch (SQLException er) {
-            System.out.println("Delete account: " + er);
-        }
-        return result;
-    }
-    
-        public int update(Account a) {
-        int result = 0;
-        String sql = "update Account set fullname=?, email=?, phone=?, username=?,"
-                + "password=?, role=?, status=? where ID=?";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setString(1, a.getFullname());
-            st.setString(2, a.getEmail());
-            st.setString(3, a.getPhone());
-            st.setString(4, a.getUsername());
-            st.setString(5, a.getPassword());
-            st.setInt(6, a.getRole());
-            st.setInt(7, a.getStatus());
-            st.setInt(8, a.getID());
+            st.setFloat(1, balance);
+            st.setInt(2, id);
             result = st.executeUpdate();
         } catch (SQLException e) {
-            System.out.println("Update account: " + e);
+            System.out.println("Update balance account: " + e);
         }
         return result;
     }
-        
-        public int updatePassword(String password, int id) {
+
+    public int updatePassword(String password, int id) {
         int result = 0;
         String sql = "update Account set password=? where ID=?";
         try {
@@ -223,14 +174,13 @@ public class AccountDAO {
 
     public int updatePersonalUser(Account a) {
         int result = 0;
-        String sql = "update Account set fullname=?, email=?, phone=?, avatar where ID=?";
+        String sql = "update Account set fullname=?, email=?, phone=? where ID=?";
         try {
             PreparedStatement st = conn.prepareStatement(sql);
             st.setString(1, a.getFullname());
             st.setString(2, a.getEmail());
             st.setString(3, a.getPhone());
-            st.setString(4, a.getAvatar());
-            st.setInt(5, a.getID());
+            st.setInt(4, a.getID());
             result = st.executeUpdate();
         } catch (SQLException e) {
             System.out.println("Update personal account: " + e);
@@ -259,7 +209,42 @@ public class AccountDAO {
         }
         return result;
     }
- private Account getAccount(ResultSet rs) {
+    
+    public int update(Account a) {
+        int result = 0;
+        String sql = "update Account set fullname=?, email=?, phone=?, username=?,"
+                + "password=?, role=?, status=? where ID=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, a.getFullname());
+            st.setString(2, a.getEmail());
+            st.setString(3, a.getPhone());
+            st.setString(4, a.getUsername());
+            st.setString(5, a.getPassword());
+            st.setInt(6, a.getRole());
+            st.setInt(7, a.getStatus());
+            st.setInt(8, a.getID());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update account: " + e);
+        }
+        return result;
+    }
+
+    public int delete(int id) {
+        int result = 0;
+        String sql = "delete from Account where id=?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, id);
+            result = st.executeUpdate();
+        } catch (SQLException er) {
+            System.out.println("Delete account: " + er);
+        }
+        return result;
+    }
+
+    private Account getAccount(ResultSet rs) {
         try {
             int id = rs.getInt("ID");
             String username = rs.getString("username");
@@ -283,6 +268,4 @@ public class AccountDAO {
         return null;
     }
 
-//return an Account from a result set
-     
 }

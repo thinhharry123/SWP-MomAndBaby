@@ -36,26 +36,20 @@ public class GetDAO {
         return accountDao.isExistAccount(username, "");
     }
     
-    /*
+   
     public Account getAccountById(int id) {
         AccountDAO accountDao = new AccountDAO();
         return accountDao.getAccountById(id);
     }
-    */
-    /*
     public int getProductByByComment(int feedback) {
         FeedbackDAO feedbackDao = new FeedbackDAO();
         return feedbackDao.getIdProductByFeedback(feedback);
     }
-    */
     
-    /*
      public Account getUser(int id) {
         AccountDAO accountDao = new AccountDAO();
         return accountDao.getAccountById(id);
-    }
-    */
-    
+    }    
 
     public String getNavigation(String key) {
         Validation validate = new Validation();

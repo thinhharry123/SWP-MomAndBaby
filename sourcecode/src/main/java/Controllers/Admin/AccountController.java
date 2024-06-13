@@ -1,4 +1,7 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ */
 package Controllers.Admin;
 
 import DAO.AccountDAO;
@@ -79,7 +82,7 @@ public class AccountController extends HttpServlet {
 
     private void getCurrentAccountUpdate(HttpServletRequest request, HttpServletResponse response, int id) {
         try {
-            Account a = accountDao.getAccountByID(id);
+            Account a = accountDao.getAccountById(id);
             if (a != null) {
                 RoleDAO roleDao = new RoleDAO();
                 request.setAttribute("account", a);
@@ -99,7 +102,7 @@ public class AccountController extends HttpServlet {
             HttpSession session = request.getSession();
             String usernameAdmin = (String) session.getAttribute("usernameAdmin");
             RoleDAO roleDao = new RoleDAO();
-            List<Account> accounts = accountDao.allAccount();
+            List<Account> accounts = accountDao.allAccount(usernameAdmin);
             List<Role> roles = roleDao.getRole();
             request.setAttribute("roles", roles);
             request.setAttribute("accounts", accounts);
@@ -136,7 +139,7 @@ public class AccountController extends HttpServlet {
             this.updateAccount(request, response);
         } else if (request.getParameter("btn-update-account-personal") != null) {
             this.updateAccountPersonal(request, response);
-        } else if(request.getParameter("btn-delete-accounts") != null) {
+        } else if (request.getParameter("btn-delete-accounts") != null) {
             this.deleteAccounts(request, response);
         }
     }
