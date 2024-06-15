@@ -96,9 +96,21 @@
         <servlet-name>ContactController</servlet-name>
         <url-pattern>/contact</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>RegisterController</servlet-name>
+        <servlet-class>Controller.user.RegisterController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RegisterController</servlet-name>
+        <url-pattern>/register</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <welcome-file-list>
+        <welcome-file>home.jsp
+        </welcome-file>
+    </welcome-file-list>
 </web-app>
