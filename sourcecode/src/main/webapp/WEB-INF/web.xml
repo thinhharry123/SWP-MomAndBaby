@@ -64,6 +64,10 @@
         <servlet-name>ProductController</servlet-name>
         <servlet-class>Controllers.Admin.ProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ContactController</servlet-name>
+        <servlet-class>Controller.user.ContactController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ProductController</servlet-name>
         <url-pattern>/admin/product/*</url-pattern>
@@ -87,6 +91,10 @@
     <servlet-mapping>
         <servlet-name>LogoutAdminController</servlet-name>
         <url-pattern>/admin/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ContactController</servlet-name>
+        <url-pattern>/contact</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
