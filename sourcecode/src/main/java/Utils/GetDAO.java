@@ -1,4 +1,4 @@
-/*
+ /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -20,10 +20,7 @@ import Model.Role;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author HP
- */
+
 public class GetDAO {
 
     public Role getRole(int id) {
@@ -36,20 +33,20 @@ public class GetDAO {
         return accountDao.isExistAccount(username, "");
     }
     
-   
     public Account getAccountById(int id) {
         AccountDAO accountDao = new AccountDAO();
         return accountDao.getAccountById(id);
     }
+    
     public int getProductByByComment(int feedback) {
         FeedbackDAO feedbackDao = new FeedbackDAO();
         return feedbackDao.getIdProductByFeedback(feedback);
     }
     
-     public Account getUser(int id) {
+    public Account getUser(int id) {
         AccountDAO accountDao = new AccountDAO();
         return accountDao.getAccountById(id);
-    }    
+    }
 
     public String getNavigation(String key) {
         Validation validate = new Validation();
@@ -85,13 +82,11 @@ public class GetDAO {
         CategoryDAO categoryDao = new CategoryDAO();
         return (categoryDao.getNumberProductByCategory(id));
     }
-    /*
+    
      public int getNumberOfPostByCategory(int id) {
         CategoryDAO categoryDao = new CategoryDAO();
         return (categoryDao.getNumberBlogByCategory(id));
     }
-    */
-     
 
 
     public int getNumberProductByProducer(int id) {
@@ -118,11 +113,9 @@ public class GetDAO {
         ProducerDAO producerDao = new ProducerDAO();
         return producerDao.getProducerByID(id);
     }
-    /*
-     public Product getProduct(int id) {
+    
+    public Product getProduct(int id) {
         ProductDAO productDao = new ProductDAO();
         return productDao.statusIsActive(id);
     }
-    */
-   
 }

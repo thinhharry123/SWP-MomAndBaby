@@ -80,6 +80,14 @@
         <servlet-name>ProducerController</servlet-name>
         <url-pattern>/admin/producer/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>LogoutAdminController</servlet-name>
+        <servlet-class>Controllers.Admin.LogoutAdminController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>LogoutAdminController</servlet-name>
+        <url-pattern>/admin/logout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

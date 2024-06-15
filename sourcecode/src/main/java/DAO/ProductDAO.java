@@ -200,4 +200,24 @@ public class ProductDAO {
         }
         return products;
     }
+         public Product statusIsActive(int id) {
+        String sql = "select p.* from Product as p join Producer "
+                + "as pr on p.producerID = pr.ID join "
+                + "Category as Ca on p.categoryID =Ca.ID "
+                + "join brand as br on br.ID = p.brandID "
+                + "where p.id = ? "
+                + "and p.status =1 and pr.status=1 and Ca.status =1";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet result = st.executeQuery();
+            if (result.next()) {
+                Product product = this.getProduct(result);
+                return product;
+            }
+        } catch (SQLException e) {
+            System.out.println("Product item: " + e);
+        }
+        return null;
+    }
 }

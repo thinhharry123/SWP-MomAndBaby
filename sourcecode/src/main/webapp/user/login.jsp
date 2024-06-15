@@ -3,7 +3,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <!-- /HEADER --> <!-- will be add later -->
-
+<%@include file="./components/header.jsp" %>
 <!-- SECTION -->
 <div class="section">
     <div class="container">
@@ -46,13 +46,16 @@
                                 class="btn btn-default"
                                 name="submitLogin"
                                 style="
-                                padding: 10px;
+                                padding: 5px 10px;
                                 color: #fff;
-                                background-color: #db4444;
+                                background-color: #007FFF;
+                                border: 2px solid #002D62;
                                 margin-bottom: 20px;
+                                border-radius: 10px;
+                                
                                 "
                                 >
-                                Login
+                                <b>Login</b>
                             </button>
                             <a href="/SWP391-MomAndBaby/forget">Forget Password?</a>
                         </div>
@@ -69,4 +72,4 @@
 <!-- /SECTION -->
 
 <!-- FOOTER --> <!-- will be add later -->
-
+<%@include file="./components/footer.jsp" %>

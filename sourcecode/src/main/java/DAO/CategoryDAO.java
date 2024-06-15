@@ -29,141 +29,6 @@ public class CategoryDAO {
         }
     }
 
-    public List<Brand> getTopBrand() {
-        String sql = "SELECT TOP 7 b.*, SUM(p.sold) AS total_sold "
-                + "FROM brand b "
-                + "JOIN product p ON b.ID = p.brandID where b.status=1"
-                + "GROUP BY b.ID, b.name, b.img, b.status, b.datePost, b.dateUpdate "
-                + "ORDER BY total_sold DESC";
-        List<Brand> brands = new ArrayList<>();
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet result = st.executeQuery();
-            while (result.next()) {
-                brands.add(this.getBrand(result));
-            }
-            return brands;
-        } catch (SQLException er) {
-            System.out.println("Get top brand: " + er);
-        }
-        return brands;
-    }
-
-    public List<Brand> getBrandActive() {
-        String sql = "SELECT b.*, SUM(p.sold) AS total_sold "
-                + "FROM brand b "
-                + "JOIN product p ON b.ID = p.brandID where b.status=1 "
-                + "GROUP BY b.ID, b.name, b.img, b.status, b.datePost, b.dateUpdate "
-                + "ORDER BY total_sold DESC";
-        List<Brand> brands = new ArrayList<>();
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet result = st.executeQuery();
-            while (result.next()) {
-                brands.add(this.getBrand(result));
-            }
-            return brands;
-        } catch (SQLException er) {
-            System.out.println("Get top brand: " + er);
-        }
-        return brands;
-    }
-
-    public Brand getBrandActiveByID(int id) {
-        String sql = "select c.* from Brand as c where c.status = 1 and id=?";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, id);
-            ResultSet result = st.executeQuery();
-            if (result.next()) {
-                return this.getBrand(result);
-            }
-        } catch (SQLException er) {
-            System.out.println("Get brand active by id: " + er);
-        }
-        return null;
-    }
-
-// end user
-    public List<Brand> allBrand() {
-        String sql = "select * from Brand order by id desc";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet result = st.executeQuery();
-            List<Brand> brands = new ArrayList<>();
-            while (result.next()) {
-                brands.add(this.getBrand(result));
-            }
-            return brands;
-        } catch (SQLException er) {
-
-        }
-        return null;
-    }
-
-    public List<Brand> getBrandByStatus(int status) {
-        String sql = "select * from Brand where status=?";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, status);
-            ResultSet result = st.executeQuery();
-            List<Brand> producers = new ArrayList<>();
-            while (result.next()) {
-                producers.add(this.getBrand(result));
-            }
-            return producers;
-        } catch (SQLException er) {
-            System.out.println("Get producer by status: " + er);
-        }
-        return null;
-    }
-
-    public int getNumberProductByBrand(int id) {
-        String sql = "select count(id) as numberProduct from Product where brandID =?";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, id);
-            ResultSet result = st.executeQuery();
-            if (result.next()) {
-                return result.getInt("numberProduct");
-            }
-            return 0;
-        } catch (SQLException e) {
-            System.out.println("Get number product by brand: " + e);
-        }
-        return 0;
-    }
-
-    public Brand getBrandByID(int id) {
-        String sql = "select * from Brand where id = ?";
-        try {
-            PreparedStatement st = conn.prepareStatement(sql);
-            st.setInt(1, id);
-            ResultSet result = st.executeQuery();
-            if (result.next()) {
-                return this.getBrand(result);
-            }
-        } catch (SQLException e) {
-            System.out.println("Get producer by id: " + e);
-        }
-        return null;
-    }
-
-    private Brand getBrand(ResultSet result) {
-        try {
-            int ID = result.getInt("ID");
-            String name = result.getString("name");
-            String img = result.getString("img");
-            Timestamp datePost = result.getTimestamp("datePost");
-            Timestamp dateUpdate = result.getTimestamp("dateUpdate");
-            int status = result.getInt("status");
-            Brand c = new Brand(ID, name, img, datePost, dateUpdate, status);
-            return c;
-        } catch (SQLException e) {
-            System.out.println("Get producer: " + e);
-        }
-        return null;
-    }
 
     public int insert(Category c) {
         int result = 0;
@@ -253,7 +118,7 @@ public class CategoryDAO {
         }
         return null;
     }
-
+//
     public int getNumberProductByCategory(int id) {
         String sql = "select count(id) as numberProduct from Product where categoryID =?";
         try {
@@ -269,7 +134,7 @@ public class CategoryDAO {
         }
         return 0;
     }
-
+//
     public List<Category> allCategory() {
         String sql = "select * from Category order by id desc";
         try {
@@ -285,7 +150,7 @@ public class CategoryDAO {
         }
         return null;
     }
-
+//
     public List<Category> getCategoryActive() {
         String sql = "select c.* from Category as c where c.status = 1";
         List<Category> categories = new ArrayList<>();
@@ -300,7 +165,7 @@ public class CategoryDAO {
         }
         return categories;
     }
-
+//
     public Category getCategoryActiveByID(int id) {
         String sql = "select c.* from Category as c where c.status = 1 and id=?";
         try {
@@ -315,7 +180,7 @@ public class CategoryDAO {
         }
         return null;
     }
-
+//
     public List<Category> getCategoryInHome() {
         String sql = "select top 5 c.* from Category as c where c.status = 1";
         List<Category> categories = new ArrayList<>();
@@ -342,5 +207,21 @@ public class CategoryDAO {
             System.out.println("Get category by name: " + er);
         }
         return null;
+    }
+    
+    public int getNumberBlogByCategory(int id) {
+        String sql = "select count(id) as numberBlog from Blog where categoryID =? and status=1";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet result = st.executeQuery();
+            if (result.next()) {
+                return result.getInt("numberBlog");
+            }
+            return 0;
+        } catch (SQLException e) {
+             System.out.println("Get number blog by category: "  + e);
+        }
+        return 0;
     }
 }
