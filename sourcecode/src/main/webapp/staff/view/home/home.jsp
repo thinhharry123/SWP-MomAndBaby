@@ -76,7 +76,7 @@
                                         <ul class="clearfix notification-meta">
                                             <li class="pull-left notification-sender">
                                                 <span>
-                                                    <a href="/MomAndBaby/staff/bill/view/${bill.ID}">
+                                                    <a href="/SWP391-MomAndBaby/staff/bill/view/${bill.ID}">
                                                         ${bill.customerName}
                                                     </a>
                                                 </span> just order
