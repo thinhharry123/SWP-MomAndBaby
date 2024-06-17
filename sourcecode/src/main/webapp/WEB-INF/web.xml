@@ -5,6 +5,10 @@
         <servlet-class>Controllers.Admin.LoginController</servlet-class>
     </servlet>
     <servlet>
+        <servlet-name>HomeController</servlet-name>
+        <servlet-class>Controllers.User.HomeController</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>DashboardController</servlet-name>
         <servlet-class>Controllers.Admin.DashboardController</servlet-class>
     </servlet>
@@ -18,7 +22,7 @@
     </servlet>
     <servlet>
         <servlet-name>LoginUserController</servlet-name>
-        <servlet-class>Controller.user.LoginUserController</servlet-class>
+        <servlet-class>Controllers.User.LoginUserController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CategoryController</servlet-name>
@@ -32,6 +36,10 @@
         <servlet-name>BlogController</servlet-name>
         <servlet-class>Controllers.Staff.BlogController</servlet-class>
     </servlet>
+    <servlet-mapping>
+        <servlet-name>HomeController</servlet-name>
+        <url-pattern>/home</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/admin/login</url-pattern>
@@ -70,7 +78,7 @@
     </servlet>
     <servlet>
         <servlet-name>ContactController</servlet-name>
-        <servlet-class>Controller.user.ContactController</servlet-class>
+        <servlet-class>Controllers.User.ContactController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>ProductController</servlet-name>
@@ -102,7 +110,7 @@
     </servlet-mapping>
     <servlet>
         <servlet-name>RegisterController</servlet-name>
-        <servlet-class>Controller.user.RegisterController</servlet-class>
+        <servlet-class>Controllers.User.RegisterController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
