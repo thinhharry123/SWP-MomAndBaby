@@ -28,6 +28,10 @@
         <servlet-name>ProducerController</servlet-name>
         <servlet-class>Controllers.Admin.ProducerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BlogController</servlet-name>
+        <servlet-class>Controllers.Staff.BlogController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/admin/login</url-pattern>
@@ -103,6 +107,10 @@
     <servlet-mapping>
         <servlet-name>RegisterController</servlet-name>
         <url-pattern>/register</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlogController</servlet-name>
+        <url-pattern>/staff/blog/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
