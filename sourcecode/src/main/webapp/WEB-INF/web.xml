@@ -120,6 +120,14 @@
         <servlet-name>BlogController</servlet-name>
         <url-pattern>/staff/blog/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AccountStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.AccountController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountStaffController</servlet-name>
+        <url-pattern>/staff/account/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
