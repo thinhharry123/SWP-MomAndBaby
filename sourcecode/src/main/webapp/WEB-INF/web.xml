@@ -152,6 +152,14 @@
         <servlet-name>AboutUsController</servlet-name>
         <url-pattern>/about</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>Controllers.User.CartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
