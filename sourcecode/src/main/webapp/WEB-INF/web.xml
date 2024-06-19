@@ -136,6 +136,14 @@
         <servlet-name>BillController</servlet-name>
         <url-pattern>/staff/bill/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controllers.Staff.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/staff/product/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

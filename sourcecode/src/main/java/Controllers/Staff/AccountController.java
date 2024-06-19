@@ -67,7 +67,7 @@ public class AccountController extends HttpServlet {
         try {
             Validation validate = new Validation();
             HttpSession session = request.getSession();
-            String usernameLogin = session.getAttribute("usernameAdmin") + "";
+            String usernameLogin = session.getAttribute("usernameStaff") + "";
             if (usernameLogin.toLowerCase().equals(username.toLowerCase())) {
                 Account a = accountDao.isExistAccount(username, "");
                 request.setAttribute("account", a);
@@ -99,16 +99,12 @@ public class AccountController extends HttpServlet {
 
     private void showAllAccount(HttpServletRequest request, HttpServletResponse response) {
         try {
-            HttpSession session = request.getSession();
-            String usernameAdmin = (String) session.getAttribute("usernameAdmin");
-            RoleDAO roleDao = new RoleDAO();
-            List<Account> accounts = accountDao.allAccount(usernameAdmin);
-            List<Role> roles = roleDao.getRole();
-            request.setAttribute("roles", roles);
+            List<Account> accounts = accountDao.allAccountByStaff();
+            System.out.println("Accounts: " + accounts.size());
             request.setAttribute("accounts", accounts);
             request.getRequestDispatcher("/staff/view/account/account.jsp").forward(request, response);
         } catch (Exception e) {
-            System.out.println("Show account staff: " + e);
+            System.out.println("Show account: " + e);
         }
     }
 
