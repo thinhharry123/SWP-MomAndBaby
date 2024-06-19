@@ -18,11 +18,11 @@ public class Bill {
     private float total;
     private int status;
     private int payment;
+    private int isGetPoint;
+    private float isUsedPoint;
     private Timestamp dateOrder;
     private Timestamp dateUpdate;
     private String transactionCode;
-    private int isGetPoint;
-    private float isUsedPoint;
     private int voucherID;
 
     public Bill() {
@@ -43,8 +43,30 @@ public class Bill {
         this.dateUpdate = dateUpdate;
         this.transactionCode = transactionCode;
     }
-    
-    
+
+    public int getIsGetPoint() {
+        return isGetPoint;
+    }
+
+    public void setIsGetPoint(int isGetPoint) {
+        this.isGetPoint = isGetPoint;
+    }
+
+    public float getIsUsedPoint() {
+        return isUsedPoint;
+    }
+
+    public void setIsUsedPoint(float isUsedPoint) {
+        this.isUsedPoint = isUsedPoint;
+    }
+
+    public int getVoucherID() {
+        return voucherID;
+    }
+
+    public void setVoucherID(int voucherID) {
+        this.voucherID = voucherID;
+    }
 
     public int getID() {
         return ID;
@@ -150,30 +172,4 @@ public class Bill {
         this.transactionCode = transactionCode;
     }
 
-    public int getIsGetPoint() {
-        return isGetPoint;
-    }
-
-    public void setIsGetPoint(int isGetPoint) {
-        this.isGetPoint = isGetPoint;
-    }
-
-    public float getIsUsedPoint() {
-        return isUsedPoint;
-    }
-
-    public void setIsUsedPoint(float isUsedPoint) {
-        this.isUsedPoint = isUsedPoint;
-    }
-
-    public int getVoucherID() {
-        return voucherID;
-    }
-
-    public void setVoucherID(int voucherID) {
-        this.voucherID = voucherID;
-    }
-    
-    
-    
 }
