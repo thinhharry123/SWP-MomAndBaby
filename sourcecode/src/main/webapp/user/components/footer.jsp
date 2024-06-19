@@ -1,4 +1,3 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- FOOTER -->
 <footer id="footer" style="background: #fff; color: #333">
@@ -13,17 +12,17 @@
                         <h3 class="footer-title">Support</h3>
                         <ul class="footer-links">
                             <li>
-                                <a href="#"
-                                   ><i class="fa fa-map-marker"></i>FPT University Hồ Chí Minh</a
+                                <a href="https://maps.app.goo.gl/x3gBBDFjiJQRj7g86"
+                                   ><i class="fa fa-map-marker"></i> FPT University Hồ Chí Minh</a
                                 >
                             </li>
                             <li>
-                                <a href="#"><i class="fa fa-phone"></i>0938680987
+                                <a href="#"><i class="fa fa-phone"></i> 0949204801
                                 </a>
                             </li>
                             <li>
                                 <a href="#"
-                                   ><i class="fa fa-envelope-o"></i>momandbabies.company@gmail.com</a
+                                   ><i class="fa fa-envelope-o"></i> momandbabies.company@gmail.com</a
                                 >
                             </li>
                         </ul>
@@ -59,10 +58,10 @@
                         <h3 class="footer-title">Social contact</h3>
                         <ul class="footer-links" style="margin-top: 15px">
                             <li>
-                                <a href="#" style="display: inline"><i class="fa fa-facebook"></i></a>
-                                <a href="#" style="display: inline"><i class="fa fa-twitter"></i></a>
-                                <a href="#" style="display: inline"><i class="fa fa-instagram"></i></a>
-                                <a href="#" style="display: inline"><i class="fa fa-linkedin"></i></a>
+                                <a href="https://www.facebook.com/" style="display: inline"><i class="fa fa-facebook"></i></a>
+                                <a href="https://x.com/?lang=vi" style="display: inline"><i class="fa fa-twitter"></i></a>
+                                <a href="https://www.instagram.com/" style="display: inline"><i class="fa fa-instagram"></i></a>
+                                <a href="https://www.linkedin.com/" style="display: inline"><i class="fa fa-linkedin"></i></a>
                             </li>
                         </ul>
                     </div>
@@ -81,23 +80,20 @@
             <div class="row" style="background: transparent">
                 <div class="col-md-12 text-center">
                     <ul class="footer-payments">
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-cc-visa"></i></a>
+                        <li style="display: inline; font-size: 40px;">
+                            <a href="https://www.visa.com.vn/vi_VN"><i class="fa fa-cc-visa"></i></a>
                         </li>
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-credit-card"></i></a>
-                        </li >
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-cc-paypal"></i></a>
+                        <li style="display: inline; font-size: 40px;">
+                            <a href="https://www.paypal.com/vn/home"><i class="fa fa-cc-paypal"></i></a>
                         </li>
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-cc-mastercard"></i></a>
+                        <li style="display: inline; font-size: 40px;">
+                            <a href="https://www.mastercard.com.vn/vi-vn.html"><i class="fa fa-cc-mastercard"></i></a>
                         </li>
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-cc-discover"></i></a>
+                        <li style="display: inline; font-size: 40px;">
+                            <a href="https://www.discover.com/"><i class="fa fa-cc-discover"></i></a>
                         </li>
-                        <li style="display: inline">
-                            <a href="#"><i class="fa fa-cc-amex"></i></a>
+                        <li style="display: inline; font-size: 40px;">
+                            <a href="https://www.americanexpress.com/"><i class="fa fa-cc-amex"></i></a>
                         </li>
                     </ul>
                     <span class="copyright">

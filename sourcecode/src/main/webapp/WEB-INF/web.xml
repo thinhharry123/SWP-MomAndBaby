@@ -144,6 +144,14 @@
         <servlet-name>ProductController</servlet-name>
         <url-pattern>/staff/product/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AboutUsController</servlet-name>
+        <servlet-class>Controllers.User.AboutUsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AboutUsController</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30
