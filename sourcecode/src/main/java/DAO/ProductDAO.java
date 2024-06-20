@@ -220,4 +220,167 @@ public class ProductDAO {
         }
         return null;
     }
+         
+         //user
+           public List<Product> getProductsByPage(int page, int pageSize, String type, int... id) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "
+                + "join producer as p on p.id = pro.producerID where pro.status = 1 and ";
+        if (type.equals("category")) {
+            sql += "pro.categoryID=? and ";
+        } else if (type.equals("brand")) {
+            sql += "pro.brandID=? and ";
+        }
+        sql += "p.status=1 and c.status=1 order by pro.ID desc "
+                + "OFFSET ? ROWS "
+                + "FETCH FIRST ? ROWS ONLY";
+        int offset = (page - 1) * pageSize;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            if (type.equals("category")) {
+                st.setInt(i++, id[0]);
+            } else if (type.equals("brand")) {
+                st.setInt(i++, id[0]);
+            }
+            st.setInt(i++, offset);
+            st.setInt(i++, pageSize);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("get product page: " + e);
+        }
+        return products;
+    }
+           
+            public List<Product> getAllProductActive(String type, int... id) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID"
+                + " join producer as p on p.id = pro.producerID join Brand as Br on"
+                + " br.ID = pro.brandId where pro.status = 1 and br.status=1 And "
+                + "p.status=1 and c.status=1";
+        if (type.equals("category")) {
+            sql += " and c.ID =?";
+        } else if (type.equals("brand")) {
+            sql += " and br.ID=?";
+        }
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            if (type.equals("category")) {
+                st.setInt(i++, id[0]);
+            } else if (type.equals("brand")) {
+                st.setInt(i++, id[0]);
+            }
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("Get all product: " + e);
+        }
+        return products;
+    }
+ public List<Product> getAllProductActiveRelative(Product p) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select top 4 pro.* from product as pro join category as c on c.id = pro.categoryID"
+                + " join producer as p on p.id = pro.producerID join Brand as Br on"
+                + " br.ID = pro.brandId where pro.status = 1 and br.status=1 And "
+                + "p.status=1 and c.status=1 and (pro.categoryID =? or pro.brandID = ? or pro.producerID=?) order by pro.ID desc";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            st.setInt(i++, p.getCategoryID());
+            st.setInt(i++, p.getBrandID());
+            st.setInt(i++, p.getProducerID());
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("get all product relative: " + e);
+        }
+        return products;
+    }
+ 
+  public List<Product> filterProduct(int[] idCategory, int[] idBrand, float from, float to, int time) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "
+                + "join producer as p on p.id = pro.producerID where pro.status = 1 and "
+                + "p.status=1 and c.status=1 ";
+        int i = 0;
+        for (int id : idCategory) {
+            if (idCategory.length - 1 == 0) {
+                sql += " and pro.categoryId = ? ";
+                break;
+            } else if (i == 0) {
+                sql += "and (pro.categoryId = ? ";
+            } else if (i == idCategory.length - 1) {
+                sql += "or pro.categoryId = ? ) ";
+            } else {
+                sql += "or pro.categoryId = ? ";
+            }
+            i++;
+        }
+        for (int id : idBrand) {
+            if (idBrand.length - 1 == 0) {
+                sql += " and pro.brandID = ? ";
+                break;
+            } else if (i == 0) {
+                sql += "and (pro.brandID = ? ";
+            } else if (i == idBrand.length - 1) {
+                sql += "or pro.brandID = ? ) ";
+            } else {
+                sql += "or pro.brandID = ? ";
+            }
+            i++;
+        }
+        sql += "and ((pro.newPrice >= ?  and pro.newPrice <= ?) or (pro.oldPrice >= ?  and pro.oldPrice <= ?)) ";
+        if (time == 0) {
+            sql += "order by id asc";
+        } else {
+            sql += "order by id desc";
+        }
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int index = 1;
+            for (int id : idCategory) {
+                st.setInt(index++, id);
+            }
+            for (int id : idBrand) {
+                st.setInt(index++, id);
+            }
+            st.setFloat(index++, from);
+            st.setFloat(index++, to);
+            st.setFloat(index++, from);
+            st.setFloat(index++, to);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("Get priority product: " + e);
+        }
+        return products;
+    }
+  
+   public List<Product> seachProduct(String keyword) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "
+                + "join producer as p on p.id = pro.producerID where pro.status = 1 and "
+                + "p.status=1 and c.status=1 and pro.name like ? order by id desc ";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, "%" + keyword + "%");
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("Get priority product: " + e);
+        }
+        return products;
+    }
 }

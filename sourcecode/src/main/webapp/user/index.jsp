@@ -1,3 +1,8 @@
+<%-- 
+    Document   : index.js
+    Created on : May 17, 2024, 9:19:06 AM
+    Author     : HP
+--%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

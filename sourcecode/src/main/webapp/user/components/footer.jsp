@@ -127,12 +127,12 @@
     window.history.replaceState({}, document.title, baseURL);</script>
 
 </script>
-<script src="./user/js/jquery.min.js"></script>
-<script src="./user/js/bootstrap.min.js"></script>
-<script src="./user/js/slick.min.js"></script>
-<script src="./user/js/nouislider.min.js"></script>
-<script src="./user/js/jquery.zoom.min.js"></script>
-<script src="./user/js/main.js"></script>
+<script src="./js/jquery.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/slick.min.js"></script>
+<script src="./js/nouislider.min.js"></script>
+<script src="./js/jquery.zoom.min.js"></script>
+<script src="./js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <jsp:useBean id="convertActionText" scope="page" class="Utils.ConvertActionText"></jsp:useBean>
     <script type="text/javascript">

@@ -8,6 +8,14 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controllers.User.HomeController</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>ProductUserController</servlet-name>
+        <servlet-class>Controllers.User.ProductUserController</servlet-class>
+    </servlet>
+     <servlet>
+        <servlet-name>FilterController</servlet-name>
+        <servlet-class>Controllers.User.FilterController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>DashboardController</servlet-name>
         <servlet-class>Controllers.Admin.DashboardController</servlet-class>
@@ -36,6 +44,10 @@
         <servlet-name>BlogController</servlet-name>
         <servlet-class>Controllers.Staff.BlogController</servlet-class>
     </servlet>
+     <servlet-mapping>
+        <servlet-name>FilterController</servlet-name>
+        <url-pattern>/filter</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>HomeController</servlet-name>
         <url-pattern>/home</url-pattern>
@@ -59,6 +71,10 @@
     <servlet-mapping>
         <servlet-name>LoginUserController</servlet-name>
         <url-pattern>/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProductUserController</servlet-name>
+        <url-pattern>/product/*</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>AccountController</servlet-name>

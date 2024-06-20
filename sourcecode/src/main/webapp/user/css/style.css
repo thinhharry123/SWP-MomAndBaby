@@ -629,6 +629,7 @@ textarea.input {
     max-height: 180px;
     overflow-y: scroll;
     margin-bottom: 15px;
+    
 }
 
 .cart-dropdown .cart-list .product-widget {
@@ -1324,4 +1325,188 @@ textarea.input {
 .products-slick-nav .slick-prev:before,
 .products-slick-nav .slick-next:before {
     font-size: 14px;
+}
+/*=========================================================
+        07 -> PRODUCTS PAGE
+===========================================================*/
+
+/*----------------------------*\
+        Aside
+\*----------------------------*/
+
+.aside + .aside {
+    margin-top: 30px;
+}
+
+.aside > .aside-title {
+    text-transform: uppercase;
+    font-size: 18px;
+    margin: 15px 0px 30px;
+}
+
+/*-- checkbox Filter --*/
+
+.checkbox-filter > div + div {
+    margin-top: 10px;
+}
+
+.checkbox-filter .input-radio label,
+.checkbox-filter .input-checkbox label {
+    font-size: 12px;
+}
+
+.checkbox-filter .input-radio label small,
+.checkbox-filter .input-checkbox label small {
+    color: #8d99ae;
+}
+
+/*-- Price Filter --*/
+
+#price-slider {
+    margin-bottom: 15px;
+}
+
+.noUi-target {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #e4e7ed;
+    border-radius: 0px;
+}
+
+.noUi-connect {
+    background-color: #ff237f;
+}
+
+.noUi-horizontal {
+    height: 6px;
+}
+
+.noUi-horizontal .noUi-handle {
+    width: 12px;
+    height: 12px;
+    left: -6px;
+    top: -4px;
+    border: none;
+    background: #d10024;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border-radius: 50%;
+}
+
+.noUi-handle:before,
+.noUi-handle:after {
+    display: none;
+}
+
+.price-filter .input-number {
+    display: inline-block;
+    width: calc(50% - 7px);
+}
+
+/*----------------------------*\
+        Store
+\*----------------------------*/
+
+.store-filter {
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+
+/*-- Store Sort --*/
+
+.store-sort {
+    display: inline-block;
+}
+
+.store-sort label {
+    font-weight: 500;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-right: 15px;
+}
+/*-- Store Grid --*/
+
+.store-grid {
+    float: right;
+}
+
+.store-grid li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+    text-align: center;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.store-grid li + li {
+    margin-left: 5px;
+}
+
+.store-grid li:hover {
+    background-color: #e4e7ed;
+    color: #d10024;
+}
+
+.store-grid li.active {
+    background-color: #d10024;
+    border-color: #d10024;
+    color: #fff;
+    cursor: default;
+}
+
+.store-grid li a {
+    display: block;
+}
+
+/*-- Store Pagination --*/
+
+.store-pagination {
+    float: right;
+}
+
+.store-pagination li {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #e4e7ed;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+    border-radius: 5px;
+}
+
+.store-pagination li + li {
+    margin-left: 5px;
+}
+
+.store-pagination li:hover {
+    background-color: #e4e7ed;
+    color: #d10024;
+}
+
+.store-pagination li.active {
+    background-color: #ff237f;
+    border-color: #ff237f;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: default;
+}
+
+.store-pagination li a {
+    display: block;
+}
+
+.store-qty {
+    margin-right: 30px;
+    font-weight: 500;
+    text-transform: uppercase;
+    font-size: 12px;
 }
