@@ -82,7 +82,7 @@
                                         <div id="responsive-nav">
                                             <!-- NAV -->
                                             <ul class="main-nav nav navbar-nav">
-                                                <li class="active"><a href="/SWP391-MomAndBaby">Home</a></li>
+                                                <li class="active"><a href="/SWP391-MomAndBaby/home">Home</a></li>
                                                 <li><a href="/SWP391-MomAndBaby/product">Shop</a></li>
                                                 <li><a href="/SWP391-MomAndBaby/contact">Contact</a></li>
                                                 <li><a href="/SWP391-MomAndBaby/blog">Blog</a></li>
