@@ -136,6 +136,46 @@
         <servlet-name>BlogController</servlet-name>
         <url-pattern>/staff/blog/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AccountStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.AccountController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountStaffController</servlet-name>
+        <url-pattern>/staff/account/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>BillController</servlet-name>
+        <servlet-class>Controllers.Staff.BillController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BillController</servlet-name>
+        <url-pattern>/staff/bill/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>ProductController</servlet-name>
+        <servlet-class>Controllers.Staff.ProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductController</servlet-name>
+        <url-pattern>/staff/product/*</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>AboutUsController</servlet-name>
+        <servlet-class>Controllers.User.AboutUsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AboutUsController</servlet-name>
+        <url-pattern>/about</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>CartController</servlet-name>
+        <servlet-class>Controllers.User.CartController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CartController</servlet-name>
+        <url-pattern>/cart/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -12,26 +12,27 @@ public class BillDetail {
     private int numberOfProduct;
     private float priceProduct;
     private String nameProduct;
-    private String size;
+    private int productID;
 
     public BillDetail() {
     }
 
-    public BillDetail(int billID, String imgProduct, int numberOfProduct, float priceProduct, String nameProduct, String size) {
+    public BillDetail(int ID, int billID, String imgProduct, int numberOfProduct, float priceProduct, String nameProduct, int productID) {
+        this.ID = ID;
         this.billID = billID;
         this.imgProduct = imgProduct;
         this.numberOfProduct = numberOfProduct;
         this.priceProduct = priceProduct;
         this.nameProduct = nameProduct;
-        this.size = size;
+        this.productID = productID;
     }
 
     public int getID() {
         return ID;
     }
 
-    public void setID(int id) {
-        this.ID = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
     public int getBillID() {
@@ -74,11 +75,11 @@ public class BillDetail {
         this.nameProduct = nameProduct;
     }
 
-    public String getSize() {
-        return size;
+    public int getProductID() {
+        return productID;
     }
 
-    public void setSize(String size) {
-        this.size = size;
+    public void setProductID(int productID) {
+        this.productID = productID;
     }
 }
