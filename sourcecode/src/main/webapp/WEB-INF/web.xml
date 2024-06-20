@@ -8,11 +8,11 @@
         <servlet-name>HomeController</servlet-name>
         <servlet-class>Controllers.User.HomeController</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>ProductUserController</servlet-name>
         <servlet-class>Controllers.User.ProductUserController</servlet-class>
     </servlet>
-     <servlet>
+    <servlet>
         <servlet-name>FilterController</servlet-name>
         <servlet-class>Controllers.User.FilterController</servlet-class>
     </servlet>
@@ -44,7 +44,11 @@
         <servlet-name>BlogController</servlet-name>
         <servlet-class>Controllers.Staff.BlogController</servlet-class>
     </servlet>
-     <servlet-mapping>
+    <servlet>
+        <servlet-name>PreOrderStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.PreOrderStaffController</servlet-class>
+    </servlet>
+    <servlet-mapping>
         <servlet-name>FilterController</servlet-name>
         <url-pattern>/filter</url-pattern>
     </servlet-mapping>
@@ -153,11 +157,11 @@
         <url-pattern>/staff/bill/*</url-pattern>
     </servlet-mapping>
     <servlet>
-        <servlet-name>ProductController</servlet-name>
-        <servlet-class>Controllers.Staff.ProductController</servlet-class>
+        <servlet-name>ProductStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.ProductStaffController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ProductController</servlet-name>
+        <servlet-name>ProductStaffController</servlet-name>
         <url-pattern>/staff/product/*</url-pattern>
     </servlet-mapping>
     <servlet>
@@ -175,6 +179,10 @@
     <servlet-mapping>
         <servlet-name>CartController</servlet-name>
         <url-pattern>/cart/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PreOrderStaffController</servlet-name>
+        <url-pattern>/staff/preorder/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

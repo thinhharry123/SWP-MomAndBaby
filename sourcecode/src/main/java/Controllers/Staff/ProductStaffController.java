@@ -36,14 +36,14 @@ import java.util.List;
 @MultipartConfig(fileSizeThreshold = 1024 * 1024 * 2, // 2 MB
         maxFileSize = 1024 * 1024 * 10, // 10 MB
         maxRequestSize = 1024 * 1024 * 50)
-public class ProductController extends HttpServlet {
+public class ProductStaffController extends HttpServlet {
 
     private static CategoryDAO categoryDao;
     private static ProducerDAO producerDao;
     private static ProductDAO productDao;
     private static BrandDAO brandDao;
 
-    public ProductController() {
+    public ProductStaffController() {
         this.categoryDao = new CategoryDAO();
         this.producerDao = new ProducerDAO();
         this.productDao = new ProductDAO();
