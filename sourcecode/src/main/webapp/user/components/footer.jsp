@@ -57,7 +57,7 @@
                     <div class="footer">
                         <h3 class="footer-title">Social contact</h3>
                         <ul class="footer-links" style="margin-top: 15px">
-                            <li>
+                            <li style="display: flex;justify-content: space-around">
                                 <a href="https://www.facebook.com/" style="display: inline"><i class="fa fa-facebook"></i></a>
                                 <a href="https://x.com/?lang=vi" style="display: inline"><i class="fa fa-twitter"></i></a>
                                 <a href="https://www.instagram.com/" style="display: inline"><i class="fa fa-instagram"></i></a>

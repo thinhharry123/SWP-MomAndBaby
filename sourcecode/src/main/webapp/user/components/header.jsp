@@ -33,7 +33,7 @@
             <link type="text/css" rel="stylesheet" href="./user/css/nouislider.min.css" />
 
             <!-- Font Awesome Icon -->
-            <link rel="stylesheet" href="./user/css/font-awesome.min.css"/>
+            <link rel="stylesheet" href="./user/css/font-awesome.min.css" />
 
             <!-- Custom stlylesheet -->
             <link type="text/css" rel="stylesheet" href="./user/css/style.css" />
