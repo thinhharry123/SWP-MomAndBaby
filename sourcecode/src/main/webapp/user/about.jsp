@@ -71,7 +71,7 @@
               style="border: 2px solid black; padding: 15px; margin: 20px;border-radius: 10px; background-color: #607DAD"
             >
               <div class="product-btns" style="margin-bottom: 20px">
-                <button class="btn-round" style="background-color: white; border-radius: 50%; width: 45px; height: 45px">
+                <button class="btn-round" style="background-color: black; border-radius: 50%; width: 45px; height: 45px">
                   <i class="fa fa-home"></i>
                 </button>
               </div>
@@ -82,17 +82,10 @@
           <div class="col-md-3">
             <div
               class="order-summary text-center"
-              style="
-                border: 1px solid black;
-                padding: 15px;
-                margin: 20px;
-                background-color: #white;
-                border-radius: 10px;
-                background-color: #607DAD;
-              "
+              style="border: 1px solid black; padding: 15px; margin: 20px; border-radius: 10px; background-color: #607DAD"
             >
               <div class="product-btns" style="margin-bottom: 20px">
-                <button class="btn-round" style="background-color: white; border-radius: 50%; width: 45px; height: 45px">
+                <button class="btn-round" style="background-color: black; border-radius: 50%; width: 45px; height: 45px">
                   <i class="fa fa-dollar"></i>
                 </button>
               </div>
@@ -106,7 +99,7 @@
               style="border: 1px solid black; padding: 15px; margin: 20px;border-radius: 10px; background-color: #607DAD"
             >
               <div class="product-btns" style="margin-bottom: 20px">
-                <button class="btn-round" style="background-color: #white; border-radius: 50%; width: 45px; height: 45px">
+                <button class="btn-round" style="background-color: black; border-radius: 50%; width: 45px; height: 45px">
                   <i class="fa fa-shopping-cart"></i>
                 </button>
               </div>
@@ -120,7 +113,7 @@
               style="border: 1px solid black; padding: 15px; margin: 20px;border-radius: 10px; background-color: #607DAD"
             >
               <div class="product-btns" style="margin-bottom: 20px">
-                <button class="btn-round" style="background-color: white; border-radius: 50%; width: 45px; height: 45px">
+                <button class="btn-round" style="background-color: black; border-radius: 50%; width: 45px; height: 45px">
                   <i class="fa fa-euro"></i>
                 </button>
               </div>

@@ -80,19 +80,19 @@
             <div class="row" style="background: transparent">
                 <div class="col-md-12 text-center">
                     <ul class="footer-payments">
-                        <li style="display: inline; font-size: 40px;">
+                        <li style="display: inline-block; font-size: 40px;">
                             <a href="https://www.visa.com.vn/vi_VN"><i class="fa fa-cc-visa"></i></a>
                         </li>
-                        <li style="display: inline; font-size: 40px;">
+                        <li style="display: inline-block; font-size: 40px;">
                             <a href="https://www.paypal.com/vn/home"><i class="fa fa-cc-paypal"></i></a>
                         </li>
-                        <li style="display: inline; font-size: 40px;">
+                        <li style="display: inline-block; font-size: 40px;">
                             <a href="https://www.mastercard.com.vn/vi-vn.html"><i class="fa fa-cc-mastercard"></i></a>
                         </li>
-                        <li style="display: inline; font-size: 40px;">
+                        <li style="display: inline-block; font-size: 40px;">
                             <a href="https://www.discover.com/"><i class="fa fa-cc-discover"></i></a>
                         </li>
-                        <li style="display: inline; font-size: 40px;">
+                        <li style="display: inline-block; font-size: 40px;">
                             <a href="https://www.americanexpress.com/"><i class="fa fa-cc-amex"></i></a>
                         </li>
                     </ul>

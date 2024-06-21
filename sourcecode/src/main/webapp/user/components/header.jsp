@@ -14,7 +14,7 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-            <title>Mom And Baby webiste</title>
+            <title>Mom And Baby website</title>
 
             <!-- Google font -->
             <link
@@ -48,7 +48,7 @@
                         <ul class="header-links text-center">
                             <p>
                                 Summer Sale For Product - Free Express Delivery - DISCOUNT UP TO 50% OFF !
-                                <a href="/SWP391-MomAndBaby/product">Shopnow</a>
+                                <a href="/SWP391-MomAndBaby/product">Shop now</a>
                             </p>
                         </ul>
                         <!-- Language Selector -->
