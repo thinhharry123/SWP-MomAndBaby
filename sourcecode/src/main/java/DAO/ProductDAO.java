@@ -222,6 +222,21 @@ public class ProductDAO {
     }
          
          //user
+         public int updateQuantitySold(Product p) {
+        int result = 0;
+        String sql = "UPDATE Product SET quantity = ?, sold = ? WHERE id = ?";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            st.setInt(i++, p.getQuantity());
+            st.setInt(i++, p.getSold());
+            st.setInt(i++, p.getID());
+            result = st.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println("Update quantity product: " + e);
+        }
+        return result;
+    }
            public List<Product> getProductsByPage(int page, int pageSize, String type, int... id) {
         List<Product> products = new ArrayList<>();
         String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "

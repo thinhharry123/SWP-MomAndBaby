@@ -4,15 +4,15 @@
  */
 package Model;
 
-public class Wards {
+public class Ward {
     private int wardsID;
     private int districtID;
     private String name;
 
-    public Wards() {
+    public Ward() {
     }
 
-    public Wards(int wardsID, int districtID, String name) {
+    public Ward(int wardsID, int districtID, String name) {
         this.wardsID = wardsID;
         this.districtID = districtID;
         this.name = name;
