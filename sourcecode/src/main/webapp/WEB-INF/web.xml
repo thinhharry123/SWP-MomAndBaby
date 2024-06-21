@@ -184,6 +184,14 @@
         <servlet-name>PreOrderStaffController</servlet-name>
         <url-pattern>/staff/preorder/*</url-pattern>
     </servlet-mapping>
+     <servlet>
+        <servlet-name>CheckoutController</servlet-name>
+        <servlet-class>Controllers.User.CheckoutController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CheckoutController</servlet-name>
+        <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

@@ -41,10 +41,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
 public class CheckoutController extends HttpServlet {
 
     /**
