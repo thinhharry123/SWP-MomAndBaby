@@ -207,7 +207,7 @@ public class CartController extends HttpServlet {
                 int result = 0;
                 while (parameterNames.hasMoreElements()) {
                     String paramName = parameterNames.nextElement();
-                    if (paramName.startsWith("qty_")) {
+                    if (paramName.startsWith("qty_")) {//cartId
                         int productId = Integer.parseInt(paramName.substring(4));
                         int quantity = validate.getInt(request.getParameter(paramName));
                         if (quantity <= 0) {

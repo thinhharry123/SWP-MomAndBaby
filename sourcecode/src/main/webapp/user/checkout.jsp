@@ -59,7 +59,7 @@
             <div class="col-md-12">
                 <h3 class="breadcrumb-header">Checkout</h3>
                 <ul class="breadcrumb-tree">
-                    <li><a href="/MomAndBaby">Home</a></li>
+                    <li><a href="/SWP391-MomAndBaby">Home</a></li>
                     <li class="active">Checkout</li>
                 </ul>
             </div>
@@ -73,7 +73,7 @@
 <!-- SECTION -->
 <div class="section">
     <!-- container -->
-    <form action="/MomAndBaby/checkout" method="post">
+    <form action="/SWP391-MomAndBaby/checkout" method="post">
         <div class="container">
             <!-- row -->
             <div class="row">

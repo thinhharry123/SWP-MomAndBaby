@@ -48,6 +48,14 @@
         <servlet-name>PreOrderStaffController</servlet-name>
         <servlet-class>Controllers.Staff.PreOrderStaffController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LogoutUserController</servlet-name>
+        <servlet-class>Controllers.User.LogoutUserController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>LogoutStaffController</servlet-name>
+        <servlet-class>Controllers.Staff.LogoutStaffController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FilterController</servlet-name>
         <url-pattern>/filter</url-pattern>
@@ -184,13 +192,21 @@
         <servlet-name>PreOrderStaffController</servlet-name>
         <url-pattern>/staff/preorder/*</url-pattern>
     </servlet-mapping>
-     <servlet>
+    <servlet>
         <servlet-name>CheckoutController</servlet-name>
         <servlet-class>Controllers.User.CheckoutController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/checkout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutUserController</servlet-name>
+        <url-pattern>/logout</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LogoutStaffController</servlet-name>
+        <url-pattern>/staff/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

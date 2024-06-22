@@ -4,8 +4,7 @@
  */
 package Controllers.User;
 
-import DAO.AccountDAO;
-import Model.Account;
+import Authentication.AuthUser;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,9 +12,7 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
-
-
-public class LoginUserController extends HttpServlet {
+public class LogoutUserController extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,10 +31,10 @@ public class LoginUserController extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LoginUserController</title>");            
+            out.println("<title>Servlet LogoutUserController</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LoginUserController at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogoutUserController at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -55,11 +52,16 @@ public class LoginUserController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        //authentication
-        //if(user is logged in)
-        //else {
-        request.getRequestDispatcher("/user/login.jsp").forward(request, response);
-        //}
+        AuthUser au = new AuthUser();
+        if(au != null) {
+            request.getSession();
+            HttpSession session = request.getSession();
+            session.removeAttribute("usernameUser");
+            session.removeAttribute("usernameRole");
+            
+        }
+        response.sendRedirect("/SWP391-MomAndBaby");
+    
     }
 
     /**
@@ -73,38 +75,7 @@ public class LoginUserController extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        AccountDAO accountDao = new AccountDAO();
-        HttpSession session = request.getSession();
-        if(request.getParameter("submitLogin")!=null){
-            String username = request.getParameter("username");
-            String password = request.getParameter("password");
-            Account a = accountDao.login(username);
-            String message = "";
-            boolean isError = false;
-            if(a == null && !isError){
-                message = "Your account does not exist";
-                isError = true;
-            }
-            if(!isError && !a.getRoleName().equals("user")){
-                message = "Your account can not log in here";
-                isError = true;
-            }if(!isError && a.getStatus()==0){
-                message = "Your account is blocked";
-                isError = true;
-            }
-            if(!isError && !a.getPassword().equals(password)){
-                message = "Password is not valid";  
-                isError = true;
-            }
-            if(message != ""){
-                request.setAttribute("messageUserAuth", message);
-                request.getRequestDispatcher("./user/login.jsp").forward(request, response);
-                return;
-            }
-            session.setAttribute("usernameUser", a.getUsername());
-            session.setAttribute("usernameRole", a.getRoleName());
-            response.sendRedirect("/SWP391-MomAndBaby/");
-        }
+        processRequest(request, response);
     }
 
     /**
