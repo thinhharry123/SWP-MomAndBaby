@@ -222,6 +222,7 @@ public class ProductDAO {
     }
          
          //user
+         
          public int updateQuantitySold(Product p) {
         int result = 0;
         String sql = "UPDATE Product SET quantity = ?, sold = ? WHERE id = ?";
@@ -381,7 +382,30 @@ public class ProductDAO {
         return products;
     }
   
-   public List<Product> seachProduct(String keyword) {
+   public List<Product> seachProduct(String keyword, int page, int pageSize) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "
+                + "join producer as p on p.id = pro.producerID where pro.status = 1 and "
+                + "p.status=1 and c.status=1 and pro.name like ? order by id desc "
+                + "OFFSET ? ROWS "
+                + "FETCH FIRST ? ROWS ONLY";
+        int offset = (page - 1) * pageSize;
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            st.setString(1, "%" + keyword + "%");
+            st.setInt(2, offset);
+            st.setInt(3, pageSize);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("Get search product: " + e);
+        }
+        return products;
+    }
+   
+    public List<Product> seachProduct(String keyword) {
         List<Product> products = new ArrayList<>();
         String sql = "select pro.* from product as pro join category as c on c.id = pro.categoryID "
                 + "join producer as p on p.id = pro.producerID where pro.status = 1 and "
@@ -398,4 +422,6 @@ public class ProductDAO {
         }
         return products;
     }
+
+
 }
