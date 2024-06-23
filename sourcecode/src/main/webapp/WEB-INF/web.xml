@@ -56,6 +56,14 @@
         <servlet-name>LogoutStaffController</servlet-name>
         <servlet-class>Controllers.Staff.LogoutStaffController</servlet-class>
     </servlet>
+     <servlet>
+        <servlet-name>SearchProductController</servlet-name>
+        <servlet-class>Controllers.User.SearchProductController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SearchProductController</servlet-name>
+        <url-pattern>/product/search/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>FilterController</servlet-name>
         <url-pattern>/filter</url-pattern>
