@@ -13,7 +13,7 @@ const filterAddress = (type, id) => {
         };
     }
     $.ajax({
-        type: 'POST',
+        type: 'POST1111111',
         url: '/SWP391-MomAndBaby/address-checkout',
         data: JSON.stringify(data),
         contentType: 'json',

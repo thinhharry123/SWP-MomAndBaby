@@ -123,12 +123,12 @@
     window.history.replaceState({}, document.title, baseURL);</script>
 
 </script>
-<script src="./js/jquery.min.js"></script>
-<script src="./js/bootstrap.min.js"></script>
-<script src="./js/slick.min.js"></script>
-<script src="./js/nouislider.min.js"></script>
-<script src="./js/jquery.zoom.min.js"></script>
-<script src="./js/main.js"></script>
+<script src="./user/js/jquery.min.js"></script>
+<script src="./user/js/bootstrap.min.js"></script>
+<script src="./user/js/slick.min.js"></script>
+<script src="./user/js/nouislider.min.js"></script>
+<script src="./user/js/jquery.zoom.min.js"></script>
+<script src="./user/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <jsp:useBean id="convertActionText" scope="page" class="Utils.ConvertActionText"></jsp:useBean>
     <script type="text/javascript">
@@ -175,8 +175,8 @@
     <c:set var="type_message" value="${param.status}"/>
 <c:set var="action" value="${param.act}"/>
 <script>
-        <c:if test="${type_message != null && type_message == 1}"                                                  >
-            Swal.fire({
+    <c:if test="${type_message != null && type_message == 1}"                                                  >
+        Swal.fire({
             title: 'Success!',
             text: '${convertActionText.convertActionText(action, type_message)}',
             icon: 'success',
@@ -184,13 +184,13 @@
                             });
                             </c:if>
             <c:if test="${type_message != null && (type_message == 0 || type_message == 2 || type_message == 3)}">
-            Swal.fire({
+                            Swal.fire({
             title: 'Error!',
             text: '${convertActionText.convertActionText(action, type_message)}',
             icon: 'error',
             confirmButtonText: 'OK'
-                        });
-                        </c:if>
+                    });
+                    </c:if>
             </script>
             </body>
             </html>

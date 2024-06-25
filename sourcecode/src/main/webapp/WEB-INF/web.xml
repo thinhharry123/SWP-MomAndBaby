@@ -60,6 +60,10 @@
         <servlet-name>SearchProductController</servlet-name>
         <servlet-class>Controllers.User.SearchProductController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>BlogUserController</servlet-name>
+        <servlet-class>Controllers.User.BlogUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchProductController</servlet-name>
         <url-pattern>/product/search/*</url-pattern>
@@ -204,6 +208,10 @@
         <servlet-name>CheckoutController</servlet-name>
         <servlet-class>Controllers.User.CheckoutController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>OrderStatusController</servlet-name>
+        <servlet-class>Controllers.User.OrderStatusController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>CheckoutController</servlet-name>
         <url-pattern>/checkout</url-pattern>
@@ -220,9 +228,42 @@
         <servlet-name>BannerController</servlet-name>
         <servlet-class>Controllers.Staff.BannerController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VNPAYController</servlet-name>
+        <servlet-class>VNPAY.VNPAYController</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>AddressCheckout</servlet-name>
+        <servlet-class>Controllers.User.AddressCheckout</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>BankingController</servlet-name>
+        <servlet-class>Controllers.User.BankingController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddressCheckout</servlet-name>
+        <url-pattern>/address-checkout</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>BannerController</servlet-name>
         <url-pattern>/staff/banner/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BlogUserController</servlet-name>
+        <url-pattern>/blog/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VNPAYController</servlet-name>
+        <url-pattern>/vnpay</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BankingController</servlet-name>
+        <url-pattern>/banking</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>OrderStatusController</servlet-name>
+        <url-pattern>/ordered/*</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

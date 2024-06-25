@@ -422,6 +422,25 @@ public class ProductDAO {
         }
         return products;
     }
+        public List<Product> getAllProductActiveRelativeCategory(int category) {
+        List<Product> products = new ArrayList<>();
+        String sql = "select top 4 pro.* from product as pro join category as c on c.id = pro.categoryID"
+                + " join producer as p on p.id = pro.producerID join Brand as Br on"
+                + " br.ID = pro.brandId where pro.status = 1 and br.status=1 And "
+                + "p.status=1 and c.status=1 and (pro.categoryID =?) order by pro.ID desc";
+        try {
+            PreparedStatement st = conn.prepareStatement(sql);
+            int i = 1;
+            st.setInt(i++, category);
+            ResultSet result = st.executeQuery();
+            while (result.next()) {
+                products.add(this.getProduct(result));
+            }
+        } catch (SQLException e) {
+            System.out.println("get all product relative category: " + e);
+        }
+        return products;
+    }
 
 
 }
