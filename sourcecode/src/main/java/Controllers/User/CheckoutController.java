@@ -1,6 +1,6 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
+ * Click nbfs:/nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs:/nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package Controllers.User;
 
@@ -94,13 +94,13 @@ public class CheckoutController extends HttpServlet {
             Account account = accountDao.getAccountByUsername(username);
             if (account == null) {
                 session.removeAttribute("usernameUser");
-                response.sendRedirect("/MomAndBaby/login");
+                response.sendRedirect("/SWP391-MomAndBaby/login");
                 return;
             }
             request.setAttribute("accountLogin", account);
             List<Cart> carts = cartDao.getAllCart(account.getID());
             if (carts.size() == 0) {
-                response.sendRedirect("/MomAndBaby");
+                response.sendRedirect("/SWP391-MomAndBaby");
                 return;
             }
             request.setAttribute("carts", carts);
@@ -111,7 +111,7 @@ public class CheckoutController extends HttpServlet {
             }
             request.getRequestDispatcher("./user/checkout.jsp").forward(request, response);
         } else {
-            response.sendRedirect("/MomAndBaby/login");
+            response.sendRedirect("/SWP391-MomAndBaby/login");
         }
     }
 
@@ -234,7 +234,7 @@ public class CheckoutController extends HttpServlet {
             CartDAO cartDao = new CartDAO();
             List<Cart> carts = cartDao.getAllCart(accountLogin.getID());
             if (carts.size() == 0) {
-                response.sendRedirect("/MomAndBaby");
+                response.sendRedirect("/SWP391-MomAndBaby");
                 return;
             }
             List<BillDetail> billDetail = new ArrayList<>();
@@ -276,7 +276,7 @@ public class CheckoutController extends HttpServlet {
                         session.setAttribute("isUsePoint", accountLogin.getBalance());
                     }
                     long totalSendVNPAY = (long) totalToPay;
-                    response.sendRedirect("/vnpay?amount=" + totalSendVNPAY);
+                    response.sendRedirect("vnpay?amount=" + totalSendVNPAY);
                 } else {
                     BillDAO billDAO = new BillDAO();
                     BillDetailDAO billDetailDao = new BillDetailDAO();
@@ -317,21 +317,21 @@ public class CheckoutController extends HttpServlet {
                                 isSendMail = emailSend.sendEmail(bill.getEmail(), "Confirm order", sendToConfirm, null);
                                 count++;
                             }
-                            if (isUsePoint.equals("usepoint")) {
+                            if (isUsePoint!= null && isUsePoint.equals("usepoint")) {
                                 accountDao.updateBalance(accountLogin.getBalance() - bill.getIsUsedPoint(), accountLogin.getID());
                             }
                             cartDao.deleteCartItemByUser(bill.getCustomerID());
-                            response.sendRedirect("/MomAndBaby/ordered/success");
+                            response.sendRedirect("/SWP391-MomAndBaby/ordered/success");
                         } else {
-                            response.sendRedirect("/MomAndBaby/ordered/fail");
+                            response.sendRedirect("/SWP391-MomAndBaby/ordered/fail");
                         }
                     }
                 }
             } else {
-                response.sendRedirect("/MomAndBaby/ordered/fail?act=limit-cart&status=0");
+                response.sendRedirect("/SWP391-MomAndBaby/ordered/fail?act=limit-cart&status=0");
             }
         } else {
-            response.sendRedirect("/MomAndBaby/login");
+            response.sendRedirect("/SWP391-MomAndBaby/login");
         }
 
     }

@@ -175,8 +175,8 @@
     <c:set var="type_message" value="${param.status}"/>
 <c:set var="action" value="${param.act}"/>
 <script>
-        <c:if test="${type_message != null && type_message == 1}"                                                  >
-            Swal.fire({
+    <c:if test="${type_message != null && type_message == 1}"                                                  >
+        Swal.fire({
             title: 'Success!',
             text: '${convertActionText.convertActionText(action, type_message)}',
             icon: 'success',
@@ -184,13 +184,13 @@
                             });
                             </c:if>
             <c:if test="${type_message != null && (type_message == 0 || type_message == 2 || type_message == 3)}">
-            Swal.fire({
+                            Swal.fire({
             title: 'Error!',
             text: '${convertActionText.convertActionText(action, type_message)}',
             icon: 'error',
             confirmButtonText: 'OK'
-                        });
-                        </c:if>
+                    });
+                    </c:if>
             </script>
             </body>
             </html>
