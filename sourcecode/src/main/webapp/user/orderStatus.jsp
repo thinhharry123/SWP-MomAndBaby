@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 <%-- 
     Document   : orderSuccess
     Created on : Oct 28, 2023, 9:37:05 PM
     Author     : Le Tan Kim
 --%>
+=======
+>>>>>>> e86cf60bcdccfe45f9b23cf7ef9e7f45846daf6e
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

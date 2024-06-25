@@ -12,10 +12,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
+<<<<<<< HEAD
 /**
  *
  * @author HP
  */
+=======
+
+>>>>>>> e86cf60bcdccfe45f9b23cf7ef9e7f45846daf6e
 public class OrderStatusController extends HttpServlet {
    
     /** 

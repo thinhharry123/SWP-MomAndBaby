@@ -148,14 +148,14 @@
                                         <td><span class="text-ellipsis">${category != null ? category.name : "N/A"}</span></td>
 
                                         <td class="box-action">
-                                            <a href="/MomAndBaby/staff/blog/view/${blog.ID}" class="btn-action blue" title="Detail">
+                                            <a href="/SWP391-MomAndBaby/staff/blog/view/${blog.ID}" class="btn-action blue" title="Detail">
                                                 <i class='bx bx-slider'></i>
                                             </a>
-                                            <a href="/MomAndBaby/staff/blog/update/${blog.ID}" class="btn-action green" title="Edit">
+                                            <a href="/SWP391-MomAndBaby/staff/blog/update/${blog.ID}" class="btn-action green" title="Edit">
                                                 <i class="bx bx-edit"></i>
                                             </a>
                                             <a onclick="return confirm('Are you sure to delete?')" 
-                                               href="/MomAndBaby/staff/blog/delete/${blog.ID}" 
+                                               href="/SWP391-MomAndBaby/staff/blog/delete/${blog.ID}" 
                                                class="btn-action orange" title="Delete">
                                                 <i class='bx bx-trash'></i>
                                             </a>
