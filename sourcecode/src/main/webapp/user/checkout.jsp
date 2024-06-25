@@ -176,13 +176,13 @@
                                 </div>
                             </c:forEach>
                         </div>
-                        <div class="order-col">
+                        <div class="order-col" style="margin-top: 20px; border-bottom: 1px solid black">
                             <div><strong>SUBTOTAL</strong></div>
                             <div><strong class="order-total">
                                     ${currency.currencyFormat(totalCartCheckout, "VNĐ")}
                                 </strong></div>
                         </div>
-                        <div class="order-col">
+                        <div class="order-col" style="margin-top: 20px; border-bottom: 1px solid black">
                             <div><strong>Discount</strong></div>
                             <div>
                                 <strong class="order-total">
@@ -217,11 +217,11 @@
                                 </c:choose>
                             </div>
                         </div>
-                        <div class="order-col">
-                            <div>Shiping</div>
+                        <div class="order-col" style="margin-top: 20px; border-bottom: 1px solid black">
+                            <div><strong>Shipping</strong></div>
                             <div><strong>FREE</strong></div>
                         </div>
-                        <div class="order-col">
+                        <div class="order-col" style="margin-top: 20px; border-bottom: 1px solid black">
                             <div><strong>TOTAL</strong></div>
                             <div><strong class="order-total">
                                     <c:choose>
@@ -259,7 +259,7 @@
                             </label>
                         </div>
                     </div>
-                    <button name="btn-checkout"  id="checkout" class="primary-btn order-submit">Place order</button>
+                    <button name="btn-checkout"  id="checkout" class="primary-btn order-submit" style="width: 100%">Place order</button>
                 </div>
                 <!-- /Order Details -->
             </div>

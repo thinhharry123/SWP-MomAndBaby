@@ -61,7 +61,7 @@
                             <div class="col">
                                 <div class="col-md-1">
                                     <a style="height: 100%; display: flex; align-items: center; cursor: pointer" onclick="confirmRemove('${cart.ID}')">
-                                        X
+                                        <i class ="fa fa-trash"></i>
                                     </a>
                                 </div>
                                 <div class="col-md-3" >

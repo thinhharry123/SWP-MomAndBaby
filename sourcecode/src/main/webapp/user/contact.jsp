@@ -120,7 +120,7 @@
                                 id="message"
                                 class="input"
                                 name="message"
-                                placeholder="Your Massage"
+                                placeholder="Your Message"
                                 style="height: 150px; resize: none"
                                 ></textarea>
                             <span class="message_error"></span>
@@ -140,7 +140,7 @@
                                 margin-bottom: 20px;
                                 "
                                 >
-                                Send Massage
+                                Send Message
                             </button>
                         </div>
                     </div>

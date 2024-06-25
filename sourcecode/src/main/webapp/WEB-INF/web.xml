@@ -265,6 +265,14 @@
         <servlet-name>OrderStatusController</servlet-name>
         <url-pattern>/ordered/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>NotFoundController</servlet-name>
+        <servlet-class>Controllers.User.NotFoundController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotFoundController</servlet-name>
+        <url-pattern>/404</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

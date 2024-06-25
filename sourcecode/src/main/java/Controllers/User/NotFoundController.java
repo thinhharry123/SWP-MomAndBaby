@@ -5,22 +5,14 @@
 
 package Controllers.User;
 
-import DAO.DistrictDao;
-import DAO.WardDao;
-import Model.District;
-import Model.Ward;
-import Utils.Validation;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.util.List;
 
-public class AddressCheckout extends HttpServlet {
+public class NotFoundController extends HttpServlet {
    
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -37,10 +29,10 @@ public class AddressCheckout extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AddressCheckout</title>");  
+            out.println("<title>Servlet NotFoundController</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AddressCheckout at " + request.getContextPath () + "</h1>");
+            out.println("<h1>Servlet NotFoundController at " + request.getContextPath () + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,7 +49,7 @@ public class AddressCheckout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        processRequest(request, response);
+        request.getRequestDispatcher("/user/404error.jsp").forward(request, response);
     } 
 
     /** 
@@ -67,47 +59,19 @@ public class AddressCheckout extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        try {
-            ObjectMapper mapper = new ObjectMapper();
-            JsonNode jsonData = mapper.readTree(request.getReader());
-            String province = jsonData.get("province").asText();
-            String ward = jsonData.get("district").asText();
-            Validation validate = new Validation();
-            if (!province.equals("")) {
-                int idProvince = validate.getInt(province);
-                DistrictDao districtDao = new DistrictDao();
-                List<District> districts = districtDao.getDistrict(idProvince);
-                PrintWriter out = response.getWriter();
-                out.print(this.district(districts));
-            } else if (!ward.equals("")) {
-                int idWard = validate.getInt(ward);
-                WardDao wardDao = new WardDao();
-                List<Ward> wards = wardDao.getWard(idWard);
-                PrintWriter out = response.getWriter();
-                out.print(this.ward(wards));
-            }
-        } catch (IOException e) {
-            System.out.println("Eror: " + e);
-        }
-
+    throws ServletException, IOException {
+        processRequest(request, response);
     }
 
-    private String district(List<District> districts) {
-        String districtHtml = "<option value=\"\">Choose  a district</option>";
-        for (District district : districts) {
-            districtHtml += "<option value=\"" + district.getDistrict_id() + "\">" + district.getName() + "</option>";
-        }
-        return districtHtml;
-    }
-
-    private String ward(List<Ward> wards) {
-        String wardHtml = "";
-        for (Ward ward : wards) {
-            wardHtml += "<option value=\"" + ward.getWardsID()+ "\">" + ward.getName() + "</option>";
-        }
-        return wardHtml;
-    }
+    /** 
+     * Returns a short description of the servlet.
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
+        return "Short description";
+    }// </editor-fold>
 
 }
