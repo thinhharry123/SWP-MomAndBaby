@@ -24,7 +24,7 @@
                                                                 <h4 class="modal-title">Add blog</h4>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <form accept-charset="UTF-8" method="post" action="/MomAndBaby/staff/blog" enctype="multipart/form-data">
+                                                                <form accept-charset="UTF-8" method="post" action="/SWP391-MomAndBaby/staff/blog" enctype="multipart/form-data">
                                                                     <div class="form-group">
                                                                         <label class="control-label">Customer</label>
                                                                         <select name="customer" id="customerSelect" class="form-control">
@@ -109,7 +109,7 @@
                             $("#product").DataTable();
                         });
                     </script>
-                    <form method="post" action="/MomAndBaby/staff/bill">
+                    <form method="post" action="/SWP391-MomAndBaby/staff/bill">
                         <table id="product" class="table table-striped b-t b-light">
                             <thead>
                                 <tr>
@@ -188,10 +188,10 @@
                                         <td><span class="text-ellipsis">${bill.dateOrder}</span></td>
                                         <td><span class="text-ellipsis">${bill.dateUpdate}</span></td>
                                         <td class="box-action">
-                                            <a title="Detail" href="/MomAndBaby/staff/bill/view/${bill.ID}" class="btn-action blue">
+                                            <a title="Detail" href="/SWP391-MomAndBaby/staff/bill/view/${bill.ID}" class="btn-action blue">
                                                 <i class='bx bx-slider' ></i>
                                             </a>
-                                            <a title="Print bill" href="/MomAndBaby/staff/bill/view/${bill.ID}?act=print-bill" class="btn-action green">
+                                            <a title="Print bill" href="/SWP391-MomAndBaby/staff/bill/view/${bill.ID}?act=print-bill" class="btn-action green">
                                                 <i class='bx bxs-printer'></i>
                                             </a>
                                         </td>

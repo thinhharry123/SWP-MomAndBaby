@@ -23,7 +23,7 @@
                                                 <h4 class="modal-title">Add banner</h4>
                                             </div>
                                             <div class="modal-body">
-                                                <form role="form" method="post" action="/MomAndBaby/staff/banner" enctype="multipart/form-data">
+                                                <form role="form" method="post" action="/SWP391-MomAndBaby/staff/banner" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label>Banner image</label>
                                                         <input onchange="previewImage(event, '.box-img-preview')" required type="file" name="image-banner" id="image-banner" class="form-control">
@@ -68,7 +68,7 @@
                         $("#category").DataTable();
                     });
                 </script>
-                <form method="post" action="/MomAndBaby/staff/banner">
+                <form method="post" action="/SWP391-MomAndBaby/staff/banner">
                     <div class="wrapper-box-btn">
                         <button name="btn-delete-banners" onclick="return confirm('Are you sure to delete?')" class="btn btn-sm btn-danger">
                             Delete all checked
@@ -113,11 +113,11 @@
                                         </c:if>
                                     </td>
                                     <td class="box-action">
-                                        <a href="/MomAndBaby/staff/banner/update/${banner.ID}" class="active btn-action green">
+                                        <a href="/SWP391-MomAndBaby/staff/banner/update/${banner.ID}" class="active btn-action green">
                                             <i class="bx bx-edit"></i>
                                         </a>
                                         <a onclick="return confirm('Are you sure to delete?')" 
-                                           href="/MomAndBaby/staff/banner/delete/${banner.ID}" 
+                                           href="/SWP391-MomAndBaby/staff/banner/delete/${banner.ID}" 
                                            class="active btn-action orange">
                                             <i class='bx bx-trash'></i>
                                         </a>
