@@ -73,7 +73,7 @@
         </div>
         <div class="box-content">
             <div class="table-agile-info">
-                <a class="btn btn-info hidden-print" href="/MomAndBaby/staff/bill"><< Back to bill</a>
+                <a class="btn btn-info hidden-print" href="/SWP391-MomAndBaby/staff/bill"><< Back to bill</a>
                 <h2 class="w3ls_head">Details order</h2>
                 <button onclick="printBill()" class="btn btn-warning hidden-print">
                     <i class='bx bxs-printer'></i>
@@ -88,7 +88,7 @@
                         Haven't received points yet
                     </c:if>
                 </span>
-                <form class="cmxform form-horizontal" method="post" action="/MomAndBaby/staff/bill">
+                <form class="cmxform form-horizontal" method="post" action="/SWP391-MomAndBaby/staff/bill">
                     <div class="row">
                         <div class="form-group col-lg-6">
                             <label class="control-label col-lg-12">Customer name</label>
@@ -231,7 +231,7 @@
                     </table>
                 </div>
             </div>
-            <a class="btn btn-info hidden-print" href="/MomAndBaby/staff/bill"><< Back to bill</a>
+            <a class="btn btn-info hidden-print" href="/SWP391-MomAndBaby/staff/bill"><< Back to bill</a>
     </section>
     <script>
         function printBill() {

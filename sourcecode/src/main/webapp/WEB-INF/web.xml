@@ -273,6 +273,14 @@
         <servlet-name>NotFoundController</servlet-name>
         <url-pattern>/404</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>VoucherController</servlet-name>
+        <servlet-class>Controllers.Staff.VoucherController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>VoucherController</servlet-name>
+        <url-pattern>/staff/voucher/*</url-pattern>
+    </servlet-mapping>
     <session-config>
         <session-timeout>
             30

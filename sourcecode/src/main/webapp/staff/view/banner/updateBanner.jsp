@@ -12,7 +12,7 @@
                     <c:set var="banner" value="${banner}" />
                     <div class="panel-body">
                         <div class=" form">
-                            <form class="cmxform form-horizontal" method="post" action="/MomAndBaby/staff/banner" enctype="multipart/form-data">
+                            <form class="cmxform form-horizontal" method="post" action="/SWP391-MomAndBaby/staff/banner" enctype="multipart/form-data">
                                 <div class="form-group ">
                                     <label for="cname" class="control-label col-lg-3">Banner image</label>
                                     <div class="col-lg-6">
