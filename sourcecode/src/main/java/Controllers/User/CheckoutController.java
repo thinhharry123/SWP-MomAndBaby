@@ -308,15 +308,15 @@ public class CheckoutController extends HttpServlet {
                                 Voucher vou = voucherDAO.currentVoucher(idVoucher);
                                 vou.setUsed(vou.getUsed() + 1);
                             }
-                            Email emailSend = new Email();
-                            TemplateEmail template = new TemplateEmail();
-                            String sendToConfirm = template.emailConfirmOrder(bill, billDetail, "Confirm order");
-                            boolean isSendMail = emailSend.sendEmail(bill.getEmail(), "Confirm order", sendToConfirm, null);
-                            int count = 1;
-                            while (!isSendMail && count < 5) {
-                                isSendMail = emailSend.sendEmail(bill.getEmail(), "Confirm order", sendToConfirm, null);
-                                count++;
-                            }
+//                            Email emailSend = new Email();
+//                            TemplateEmail template = new TemplateEmail();
+//                            String sendToConfirm = template.emailConfirmOrder(bill, billDetail, "Confirm order");
+//                            boolean isSendMail = emailSend.sendEmail(bill.getEmail(), "Confirm order", sendToConfirm, null);
+//                            int count = 1;
+//                            while (!isSendMail && count < 5) {
+//                                isSendMail = emailSend.sendEmail(bill.getEmail(), "Confirm order", sendToConfirm, null);
+//                                count++;
+//                            }
                             if (isUsePoint!= null && isUsePoint.equals("usepoint")) {
                                 accountDao.updateBalance(accountLogin.getBalance() - bill.getIsUsedPoint(), accountLogin.getID());
                             }

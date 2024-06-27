@@ -10,10 +10,10 @@
         <meta name="author" content="">
         <title>Tạo mới đơn hàng</title>
         <!-- Bootstrap core CSS -->
-        <link href="./user/assets/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="./user/css/bootstrap.min.css" rel="stylesheet"/>
         <!-- Custom styles for this template -->
-        <link href="./user/assets/css/jumbotron-narrow.css" rel="stylesheet">      
-        <script src="./user/assets/js/jquery-1.11.3.min.js"></script>
+        <link href="./user/css/jumbotron-narrow.css" rel="stylesheet">      
+        <script src="./user/js/jquery.min.js"></script>
     </head>
     <body>
         <div class="container">
@@ -66,29 +66,6 @@
             window.onload = () => {
                 document.querySelector(".btn-pay-now").click();
             }
-            $("#frmCreateOrder").submit(function () {
-                var postData = $("#frmCreateOrder").serialize();
-                var submitUrl = $("#frmCreateOrder").attr("action");
-                $.ajax({
-                    type: "POST",
-                    url: submitUrl,
-                    data: postData,
-                    dataType: 'JSON',
-                    success: function (x) {
-                        if (x.code === '00') {
-                            if (window.vnpay) {
-                                vnpay.open({width: 768, height: 600, url: x.data});
-                            } else {
-                                location.href = x.data;
-                            }
-                            return false;
-                        } else {
-                            alert(x.Message);
-                        }
-                    }
-                });
-                return false;
-            });
         </script>       
     </body>
 </html>

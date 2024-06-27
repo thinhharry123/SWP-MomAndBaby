@@ -30,10 +30,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
+
 public class BankingController extends HttpServlet {
 
     /**
@@ -84,6 +81,7 @@ public class BankingController extends HttpServlet {
         String transactionStatus = request.getParameter("vnp_TransactionStatus");
         List<BillDetail> billDetail = (List<BillDetail>) session.getAttribute("billDetail");
         Bill bill = (Bill) session.getAttribute("bill");
+        System.out.println(bill + " " + billDetail);
         float isUsePoint = validate.getFloat(session.getAttribute("isUsePoint") + "");
         int type_order = 1;
         if (bill != null && billDetail != null) {
@@ -136,17 +134,17 @@ public class BankingController extends HttpServlet {
                             session.removeAttribute("billDetail");
                             session.removeAttribute("bill");
                             session.removeAttribute("hasVoucher");
-                            response.sendRedirect("/MomAndBaby/ordered/success");
+                            response.sendRedirect("/SWP391-MomAndBaby/ordered/success");
                         } else {
-                            response.sendRedirect("/MomAndBaby/ordered/fail");
+                            response.sendRedirect("/SWP391-MomAndBaby/ordered/fail");
                         }
                     }
                 } else {
-                   response.sendRedirect("/MomAndBaby/ordered/fail");
+                   response.sendRedirect("/SWP391-MomAndBaby/ordered/fail");
                 }
             }
         } else {
-            response.sendRedirect("/MomAndBaby/404");
+            response.sendRedirect("/SWP391-MomAndBaby/404");
         }
     }
 

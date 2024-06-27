@@ -1,10 +1,7 @@
 
 package VNPAY;
 
-/**
- *
- * @author HP
- */
+
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
@@ -27,7 +24,7 @@ import jakarta.servlet.http.HttpServletRequest;
 public class Config {
 
     public static String vnp_PayUrl = "https://sandbox.vnpayment.vn/paymentv2/vpcpay.html";
-    public static String vnp_ReturnUrl = "http://localhost:8080/SWP391-MomAndBaby/banking/";
+    public static String vnp_ReturnUrl = "http://localhost:8080/SWP391-MomAndBaby/banking";
     public static String vnp_TmnCode = "SIS8ACPU";
     public static String secretKey = "PKQCVSGLRUNJLZBSVOQREXNIKZHWPTMW";
     public static String vnp_ApiUrl = "https://sandbox.vnpayment.vn/merchant_webapi/api/transaction";

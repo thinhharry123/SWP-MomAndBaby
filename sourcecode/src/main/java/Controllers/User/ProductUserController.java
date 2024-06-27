@@ -24,10 +24,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- *
- * @author HP
- */
+
 public class ProductUserController extends HttpServlet {
 
     private static CategoryDAO categoryDao;
@@ -35,7 +32,7 @@ public class ProductUserController extends HttpServlet {
     private static ProductDAO productDao;
     private static Validation validate;
     private static FeedbackDAO feedbackDao;
-    private static final int numberProductInPage = 9;
+    private static final int numberProductInPage = 3;
 
     public ProductUserController() {
         this.categoryDao = new CategoryDAO();

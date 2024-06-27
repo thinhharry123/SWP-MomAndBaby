@@ -20,10 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.TimeZone;
 
-/**
- *
- * @author HP
- */
+
 public class VNPAYController extends HttpServlet {
    
 
@@ -118,8 +115,7 @@ public class VNPAYController extends HttpServlet {
         job.addProperty("code", "00");
         job.addProperty("message", "success");
         job.addProperty("data", paymentUrl);
-        Gson gson = new Gson();
-        resp.getWriter().write(gson.toJson(job));
+        resp.sendRedirect(paymentUrl);
     }
 
 }
