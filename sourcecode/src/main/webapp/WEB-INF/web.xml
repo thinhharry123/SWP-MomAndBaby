@@ -269,9 +269,25 @@
         <servlet-name>OrderStatusController</servlet-name>
         <url-pattern>/ordered/*</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>AccountUserController</servlet-name>
+        <servlet-class>Controllers.User.AccountUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AccountUserController</servlet-name>
+        <url-pattern>/account/*</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
         <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>NotFoundController</servlet-name>
+        <servlet-class>Controllers.User.NotFoundController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotFoundController</servlet-name>
+        <url-pattern>/404</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>default</servlet-name>
