@@ -1,7 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-    <base href="http://localhost:8080/MomAndBaby/" />
+    <base href="http://localhost:8080/SWP391-MomAndBaby/" />
     <title>Not Found | Staff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,7 +21,7 @@
             <h3>SORRY</h3>
             <h2>404</h2>
             <p>An error Occurred in the Application And Your Page could not be Served.</p>
-            <a href="/MomAndBaby/admin">Back home</a>
+            <a href="/SWP391-MomAndBaby/admin">Back home</a>
         </div>
     </div>
     <script src="./static-admin/assets/js/bootstrap.js"></script>

@@ -583,7 +583,7 @@ public class TemplateEmail {
                 + "<div class=\"main-order\">\n"
                 + "            <div class=\"info-order\">\n"
                 + " <h3>Hello "+a.getUsername()+"</h3>"
-                + " <div>The product you purchased is already available in our store. Click <a href=\"http://localhost:8080/MomAndBaby/product/detail/"+p.getID()+"\">Here</a> to buy this product now"+"</div>"
+                + " <div>The product you purchased is already available in our store. Click <a href=\"http://localhost:8080/SWP391-MomAndBaby/product/detail/"+p.getID()+"\">Here</a> to buy this product now"+"</div>"
                 + "            </div>\n"
                 + "            <div class=\"order-product\">\n"
                 + "                <h2>Products</h2>\n"

@@ -12,7 +12,7 @@
     <section class="wrapper">
         <div class="mail-w3agile">
             <!-- page start-->
-            <form action="/MomAndBaby/staff/product" method="post">
+            <form action="/SWP391-MomAndBaby/staff/product" method="post">
                 <div class="row">
                     <div class="col-sm-12 mail-w3agile">
                         <section class="panel">

@@ -2,8 +2,8 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <head>
-    <base href="http://localhost:8080/MomAndBaby/" />
-    <!--<base href="https://c586-2402-800-6343-a711-8958-7dd9-7dc8-a065.ngrok-free.app/MomAndBaby/" />-->
+    <base href="http://localhost:8080/SWP391-MomAndBaby/" />
+    <!--<base href="https://c586-2402-800-6343-a711-8958-7dd9-7dc8-a065.ngrok-free.app/SWP391-MomAndBaby/" />-->
     <title>Login | Staff</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,7 +24,7 @@
             <form action="/SWP391-MomAndBaby/staff/login" method="post">
                 <input type="text" class="ggg" name="username" placeholder="USERNAME" required>
                 <input type="password" class="ggg" name="password" placeholder="PASSWORD" required>
-                <h6><a href="/MomAndBaby/staff/forget">Forgot Password?</a></h6>
+                <h6><a href="/SWP391-MomAndBaby/staff/forget">Forgot Password?</a></h6>
                 <div class="clearfix"></div>
                 <input type="submit" value="Sign In" name="login">
                 <span class="message-error">${requestScope.message}</span>

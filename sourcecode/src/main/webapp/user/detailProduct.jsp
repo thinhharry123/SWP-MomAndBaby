@@ -12,9 +12,9 @@
         <div class="row">
             <div class="col-md-12">
                 <ul class="breadcrumb-tree">
-                    <li><a href="/MomAndBaby">Home</a></li>
-                    <li><a href="/MomAndBaby/product">Shop</a></li>
-                    <li><a href="/MomAndBaby/product/detail/${product.ID}">${product.name}</a></li>
+                    <li><a href="/SWP391-MomAndBaby">Home</a></li>
+                    <li><a href="/SWP391-MomAndBaby/product">Shop</a></li>
+                    <li><a href="/SWP391-MomAndBaby/product/detail/${product.ID}">${product.name}</a></li>
                 </ul>
             </div>
         </div>
@@ -130,7 +130,7 @@
                                 <label style="margin-top: 10px">Category: </label>
                             </div>
                             <div class="col-md-6 color-options" style="margin-top: 10px">
-                                <a href="/MomAndBaby/product?type=category&id=${category != null ? category.ID : 0}">
+                                <a href="/SWP391-MomAndBaby/product?type=category&id=${category != null ? category.ID : 0}">
                                     ${category != null ? category.name : "N/A"}
                                 </a>
                             </div>
@@ -141,7 +141,7 @@
                                 <label style="margin-top: 10px">Brand: </label>
                             </div>
                             <div class="col-md-6 color-options" style="margin-top: 10px">
-                                <a href="/MomAndBaby/product?type=brand&id=${brand != null ? brand.ID : 0}">
+                                <a href="/SWP391-MomAndBaby/product?type=brand&id=${brand != null ? brand.ID : 0}">
                                     ${brand != null ? brand.name : "N/A"}
                                 </a>
                             </div>
@@ -159,9 +159,9 @@
                         </div>
                     </div>
                     <c:if test="${product.quantity  > 0}">
-                        <form action="/MomAndBaby/cart/add" method="post">
+                        <form action="/SWP391-MomAndBaby/cart/add" method="post">
                             <input name="productID" value="${product.ID}" type="hidden"/>
-                            <input name="pathUrl" value="/MomAndBaby/product/detail/${product.ID}" type="hidden"/>
+                            <input name="pathUrl" value="/SWP391-MomAndBaby/product/detail/${product.ID}" type="hidden"/>
                             <div
                                 class="add-to-cart"
                                 style="display: flex; align-items: center"
@@ -233,7 +233,7 @@
                             align-items: center;
                             "
                             >
-                            <a href="/MomAndBaby/preOrder/add?productID=${product.ID}&pathUrl=/MomAndBaby/product/detail/${product.ID}"
+                            <a href="/SWP391-MomAndBaby/preOrder/add?productID=${product.ID}&pathUrl=/SWP391-MomAndBaby/product/detail/${product.ID}"
                                class="add-to-cart-btn"
                                style="
                                margin-left: 10px;
@@ -417,7 +417,7 @@
                         </div>
                         <div class="product-body">
                             <h3 class="product-name">
-                                <a href="/MomAndBaby/product/detail/${pro.ID}">${pro.name}</a>
+                                <a href="/SWP391-MomAndBaby/product/detail/${pro.ID}">${pro.name}</a>
                             </h3>
                             <h4 class="product-price">
                                 <c:if test="${pro.newPrice > 0}">
@@ -429,7 +429,7 @@
                             </h4>
                         </div>
                         <div class="add-to-cart">
-                            <a class="add-to-cart-btn" href="/MomAndBaby/cart/add?productID=${pro.ID}&quantity=1&pathUrl=/MomAndBaby/product/detail/${product.ID}">
+                            <a class="add-to-cart-btn" href="/SWP391-MomAndBaby/cart/add?productID=${pro.ID}&quantity=1&pathUrl=/SWP391-MomAndBaby/product/detail/${product.ID}">
                                 <i class="fa fa-shopping-cart"></i> add to cart
                             </a>
                         </div>

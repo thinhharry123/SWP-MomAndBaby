@@ -1,5 +1,5 @@
 const filterStatus = (page, data) => {
-    var url = '/MomAndBaby/admin/filter/status';
+    var url = '/SWP391-MomAndBaby/admin/filter/status';
     $.ajax({
         type: 'Post',
         url: url,
@@ -24,7 +24,7 @@ const filterStatisticRevenue = (from = false, to = false) => {
         fromValue = document.querySelector(from).value;
         toValue = document.querySelector(to).value;
     }
-    var url = '/MomAndBaby/admin/filter/statistic';
+    var url = '/SWP391-MomAndBaby/admin/filter/statistic';
     $.ajax({
         type: 'Post',
         url: url,
@@ -90,7 +90,7 @@ const  filterStatisticBill = (from = false, to = false) => {
         fromValue = document.querySelector(from).value;
         toValue = document.querySelector(to).value;
     }
-    var url = '/MomAndBaby/admin/filter/statistic';
+    var url = '/SWP391-MomAndBaby/admin/filter/statistic';
     $.ajax({
         type: 'Post',
         url: url,

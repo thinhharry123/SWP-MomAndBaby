@@ -25,7 +25,7 @@ const filterProduct = (page) => {
     };
     $.ajax({
         type: 'POST',
-        url: '/MomAndBaby/filter',
+        url: '/SWP391-MomAndBaby/filter',
         data: JSON.stringify(data),
         contentType: 'application/json',
         success: function (response) {

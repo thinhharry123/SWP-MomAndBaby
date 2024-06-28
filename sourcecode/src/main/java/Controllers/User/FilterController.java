@@ -130,7 +130,7 @@ public class FilterController extends HttpServlet {
                     + "                                </div>\n"
                     + "                                <div class=\"product-body\">\n"
                     + "                                    <h3 class=\"product-name\">\n"
-                    + "                                        <a href=\"/MomAndBaby/product/detail/" + pro.getID() + "\">" + pro.getName() + "</a>\n"
+                    + "                                        <a href=\"/SWP391-MomAndBaby/product/detail/" + pro.getID() + "\">" + pro.getName() + "</a>\n"
                     + "                                    </h3>\n"
                     + "                                    <h4 class=\"product-price\">\n";
             if (pro.getNewPrice() > 0) {
@@ -141,7 +141,7 @@ public class FilterController extends HttpServlet {
             productReturn += "                                    </h4>\n"
                     + "                                </div>\n"
                     + "<div class=\"add-to-cart\">\n"
-                    + "                                    <a class=\"add-to-cart-btn\" href=\"/MomAndBaby/cart/add?productID=" + pro.getID() + "&quantity=1&pathUrl=/MomAndBaby/product\">\n"
+                    + "                                    <a class=\"add-to-cart-btn\" href=\"/SWP391-MomAndBaby/cart/add?productID=" + pro.getID() + "&quantity=1&pathUrl=/SWP391-MomAndBaby/product\">\n"
                     + "                                        <i class=\"fa fa-shopping-cart\"></i> add to cart\n"
                     + "                                    </a>\n"
                     + "                                </div>"
