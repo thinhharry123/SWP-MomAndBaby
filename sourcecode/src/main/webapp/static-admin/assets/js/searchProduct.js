@@ -1,7 +1,7 @@
 
 document.getElementById('searchProductInput').addEventListener('input', function () {
     const query = document.getElementById('searchProductInput').value;
-    fetch("/MomAndBaby/staff/search-product?query=" + query)
+    fetch("/SWP391-MomAndBaby/staff/search-product?query=" + query)
             .then(response => response.json())
             .then(data => {
                 console.log(data);

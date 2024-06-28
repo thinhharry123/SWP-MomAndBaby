@@ -18,7 +18,7 @@ const  filterStatisticBill = (from = false, to = false) => {
         fromValue = document.querySelector(from).value;
         toValue = document.querySelector(to).value;
     }
-    var url = '/MomAndBaby/staff/statistic';
+    var url = '/SWP391-MomAndBaby/staff/statistic';
     $.ajax({
         type: 'Post',
         url: url,

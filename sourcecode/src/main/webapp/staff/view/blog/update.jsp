@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <button id="update-blog" name="btn-update-blog" type="submit" class="btn btn-group-justified btn-primary">Update</button>
-                        <a class="btn btn-info btn-back-to-page" href="/MomAndBaby/staff/blog"><< Back to blog</a>
+                        <a class="btn btn-info btn-back-to-page" href="/SWP391-MomAndBaby/staff/blog"><< Back to blog</a>
                     </div>
                 </form>
             </div>

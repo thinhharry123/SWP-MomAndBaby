@@ -84,7 +84,7 @@
                                             <li class="pull-right notification-time">${bill.dateOrder}</li>
                                         </ul>
                                         <p>
-                                            <a href="/MomAndBaby/staff/bill/view/${bill.ID}">
+                                            <a href="/SWP391-MomAndBaby/staff/bill/view/${bill.ID}">
                                                 Click to change status of order now
                                             </a>
                                         </p>
@@ -120,7 +120,7 @@
                                         <ul class="clearfix notification-meta">
                                             <li class="pull-left notification-sender">
                                                 <span>
-                                                    <a href="/MomAndBaby/staff/product/feedback/${getDao.getProductByByComment(feedback.ID)}">
+                                                    <a href="/SWP391-MomAndBaby/staff/product/feedback/${getDao.getProductByByComment(feedback.ID)}">
                                                         ${accountFeedback.username}
                                                     </a>
                                                 </span>
@@ -141,7 +141,7 @@
                                             </li>
                                         </ul> 
                                         <p>
-                                            <a href="/MomAndBaby/staff/product/feedback/${getDao.getProductByByComment(feedback.ID)}">
+                                            <a href="/SWP391-MomAndBaby/staff/product/feedback/${getDao.getProductByByComment(feedback.ID)}">
                                                 Click to change status of comment now
                                             </a>
                                         </p>

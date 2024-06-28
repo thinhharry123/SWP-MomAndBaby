@@ -68,12 +68,12 @@ public class GetDAO {
             int id = validate.getInt(queryParams.get("id"));
             String keyType = "?type=category&id=" + id;
             Category cate = categoryDao.getCategoryActiveByID(id);
-            return "<li><a href=\"/MomAndBaby/product" + keyType + "\">" + cate.getName() + "</a></li>";
+            return "<li><a href=\"/SWP391-MomAndBaby/product" + keyType + "\">" + cate.getName() + "</a></li>";
         } else if (queryParams.get("?type") != null && queryParams.get("?type").equals("brand")) {
             int id = validate.getInt(queryParams.get("id"));
             String keyType = "?type=brand&id=" + id;
             Brand brand = brandDao.getBrandActiveByID(id);
-            return "<li><a href=\"/MomAndBaby/product" + keyType + "\">" + brand.getName() + "</a></li>";
+            return "<li><a href=\"/SWP391-MomAndBaby/product" + keyType + "\">" + brand.getName() + "</a></li>";
         }
         return "";
     }

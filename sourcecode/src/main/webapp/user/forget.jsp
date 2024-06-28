@@ -13,7 +13,7 @@
             <div class="col-md-6" style="padding: 100px; margin-top: 70px">
                 <h2>Forget password</h2>
                 <p>Enter your details below</p>
-                <form action="/MomAndBaby/forget" method="post">
+                <form action="/SWP391-MomAndBaby/forget" method="post">
                     <div style="width: 400px; margin-bottom: 20px; margin-top: 20px">
                         <input
                             class="input"
@@ -53,7 +53,7 @@
                                 >
                                 Reset password
                             </button>
-                            <a href="/MomAndBaby/login">Login?</a>
+                            <a href="/SWP391-MomAndBaby/login">Login?</a>
                         </div>
                         <span style="display: block;color: red">${message}</span>
                     </div>
