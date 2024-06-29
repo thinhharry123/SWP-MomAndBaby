@@ -69,7 +69,7 @@
                         <div class="order-products">
                             <div class="order-col" style="margin-top: 20px">
                                 <strong style="color: #db4444; font-size: 20px"
-                                        >Edit Your password</strong
+                                        ><i class="fa fa-pencil"></i> Edit Your password</strong
                                 >
                             </div>
                             <div class="form-group">

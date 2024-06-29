@@ -1,21 +1,21 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="./components/header.jsp" %>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
-    <!-- BREADCRUMB -->
-    <div id="breadcrumb" class="section">
-        <!-- container -->
-        <div class="container">
-            <!-- row -->
-            <div class="row">
-                <div class="col-md-10">
-                    <ul class="breadcrumb-tree">
-                        <li><a href="/SWP391-MomAndBaby">Home</a></li>
-                        <li><a>History Pre order</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-2">
-                    <ul>
-                        <li>Welcome! <a>${accountLogin.username}</a></li>
+<!-- BREADCRUMB -->
+<div id="breadcrumb" class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <div class="col-md-10">
+                <ul class="breadcrumb-tree">
+                    <li><a href="/SWP391-MomAndBaby">Home</a></li>
+                    <li><a>History order</a></li>
+                </ul>
+            </div>
+            <div class="col-md-2">
+                <ul>
+                    <li>Welcome! <a>${accountLogin.username}</a></li>
                 </ul>
             </div>
         </div>
@@ -56,7 +56,10 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-9">
+                
             </div>
         </div>
     </div>
+</div>
 <%@include file="./components/footer.jsp" %>            

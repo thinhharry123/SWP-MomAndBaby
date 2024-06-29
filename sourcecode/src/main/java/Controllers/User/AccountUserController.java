@@ -82,7 +82,17 @@ public class AccountUserController extends HttpServlet {
                 request.getRequestDispatcher("/user/account.jsp").forward(request, response);
             } else if (path.endsWith("/SWP391-MomAndBaby/account/password")) {
                 request.getRequestDispatcher("/user/password.jsp").forward(request, response);
-            } else {
+            } else if (path.endsWith("/SWP391-MomAndBaby/account/history-order")){
+                List<Bill> bills = billDao.getBillByCustomer(accountLogin.getID());
+                request.setAttribute("bills", bills);
+                request.getRequestDispatcher("/user/historyOrder.jsp").forward(request, response);
+            }else if (path.endsWith("/SWP391-MomAndBaby/account/pre-order")) {
+                PreOrderDAO preOrderDao = new PreOrderDAO();
+                List<PreOrder> preOrders = preOrderDao.getAllByAccountID(accountLogin.getID());
+                request.setAttribute("preOrders", preOrders);
+                request.getRequestDispatcher("/user/historyPreOrder.jsp").forward(request, response);
+            }
+            else {
                 response.sendRedirect("/SWP391-MomAndBaby/404");
             }
         } else {

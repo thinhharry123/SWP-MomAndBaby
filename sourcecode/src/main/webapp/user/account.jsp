@@ -52,7 +52,7 @@
                         <a href="/SWP391-MomAndBaby/account/history-order">History order</a>
                     </div>
                     <div style="margin-left: 30px; margin-top: 5px">
-                        <a href="/SWP391-MomAndBaby/account/pre-order">Preorder</a>
+                        <a href="/SWP391-MomAndBaby/account/pre-order">Pre order</a>
                     </div>
                 </div>
             </div>
@@ -69,7 +69,7 @@
                         <div class="order-products">
                             <div class="order-col" style="margin-top: 20px">
                                 <strong style="color: #db4444; font-size: 20px"
-                                        >Edit Your Profile</strong
+                                        ><i class="fa fa-pencil"></i> Edit Your Profile</strong
                                 >
                             </div>
                             <div class="form-group">
