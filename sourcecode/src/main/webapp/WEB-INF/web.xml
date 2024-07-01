@@ -64,6 +64,10 @@
         <servlet-name>BlogUserController</servlet-name>
         <servlet-class>Controllers.User.BlogUserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VoucherUserController</servlet-name>
+        <servlet-class>Controllers.User.VoucherUserController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchProductController</servlet-name>
         <url-pattern>/product/search/*</url-pattern>
@@ -236,7 +240,6 @@
         <servlet-name>VNPAYController</servlet-name>
         <servlet-class>VNPAY.VNPAYController</servlet-class>
     </servlet>
-    
     <servlet>
         <servlet-name>AddressCheckout</servlet-name>
         <servlet-class>Controllers.User.AddressCheckout</servlet-class>
@@ -332,6 +335,10 @@
     <servlet-mapping>
         <servlet-name>SendMailController</servlet-name>
         <url-pattern>/staff/send-mail</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VoucherUserController</servlet-name>
+        <url-pattern>/voucher</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
