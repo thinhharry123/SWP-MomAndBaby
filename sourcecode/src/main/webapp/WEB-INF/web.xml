@@ -68,6 +68,10 @@
         <servlet-name>VoucherUserController</servlet-name>
         <servlet-class>Controllers.User.VoucherUserController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UserGetPointController</servlet-name>
+        <servlet-class>Controllers.User.UserGetPointController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SearchProductController</servlet-name>
         <url-pattern>/product/search/*</url-pattern>
@@ -339,6 +343,10 @@
     <servlet-mapping>
         <servlet-name>VoucherUserController</servlet-name>
         <url-pattern>/voucher</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UserGetPointController</servlet-name>
+        <url-pattern>/get-point</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
