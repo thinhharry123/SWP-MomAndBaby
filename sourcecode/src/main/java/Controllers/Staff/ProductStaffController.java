@@ -6,11 +6,13 @@ package Controllers.Staff;
 
 import DAO.BrandDAO;
 import DAO.CategoryDAO;
+import DAO.FeedbackDAO;
 import DAO.ImgDescriptionDAO;
 import DAO.ProducerDAO;
 import DAO.ProductDAO;
 import Model.Brand;
 import Model.Category;
+import Model.Feedback;
 import Model.ImgDescription;
 import Model.Producer;
 import Model.Product;
@@ -109,17 +111,29 @@ public class ProductStaffController extends HttpServlet {
                 } else {
                     response.sendRedirect("/SWP391-MomAndBaby/staff/404");
                 }
-            } else if (path.startsWith("/SWP391-MomAndBaby/staff/product/comment/")) {
-//                boolean isView = this.getCurrentProductComment(request, response, slug);
-//                if (isView) {
-//                    request.getRequestDispatcher("/admin/view/product/commentProduct.jsp").forward(request, response);
-//                } else {
-//                    response.sendRedirect("/SWP391-MomAndBaby/admin/404");
-//                }
-            } else if (path.startsWith("/SWP391-MomAndBaby/staff/product/delete/")) {
-                this.deleteProduct(request, response, id);
+            } else if (path.startsWith("/SWP391-MomAndBaby/staff/product/feedback/")) {
+                boolean isView = this.getCurrentProductFeedback(request, response, id);
+                if (isView) {
+                    request.getRequestDispatcher("/staff/view/product/feedbackProduct.jsp").forward(request, response);
+                } else if (path.startsWith("/SWP391-MomAndBaby/staff/product/delete/")) {
+                    this.deleteProduct(request, response, id);
+                }
             }
         }
+    }
+
+    public boolean getCurrentProductFeedback(HttpServletRequest request, HttpServletResponse response, int id) {
+        try {
+            FeedbackDAO feedbackDAO = new FeedbackDAO();
+            List<Feedback> feedbacks = feedbackDAO.allFeedbackByProductAdmin(id);
+            Product p = productDao.getProductByID(id);
+            request.setAttribute("product", p);
+            request.setAttribute("feedbacks", feedbacks);
+            return true;
+        } catch (Exception e) {
+            System.out.println("Get feedback product admin: " + e);
+        }
+        return false;
     }
 
     private void showAllProduct(HttpServletRequest request, HttpServletResponse response) {
@@ -167,7 +181,7 @@ public class ProductStaffController extends HttpServlet {
         }
         return false;
     }
-    
+
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response, int id) {
         try {
             String pathProductImg = "./uploads/product/";
@@ -194,7 +208,6 @@ public class ProductStaffController extends HttpServlet {
             System.out.println("Delete product: " + e);
         }
     }
-
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -227,7 +240,7 @@ public class ProductStaffController extends HttpServlet {
             String model = request.getParameter("model");
             float oldPrice = Float.parseFloat(request.getParameter("oldPrice"));
             float newPrice = Float.parseFloat(request.getParameter("newPrice"));
-            if(newPrice >= oldPrice) {
+            if (newPrice >= oldPrice) {
                 response.sendRedirect("/SWP391-MomAndBaby/staff/product?act=add-new-product&status=2");
                 return;
             }
@@ -267,7 +280,7 @@ public class ProductStaffController extends HttpServlet {
             System.out.println("Insert product: " + e);
         }
     }
-    
+
     private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
         try {
             request.setCharacterEncoding("UTF-8");
@@ -280,7 +293,7 @@ public class ProductStaffController extends HttpServlet {
             String model = request.getParameter("model");
             float oldPrice = Float.parseFloat(request.getParameter("oldPrice"));
             float newPrice = Float.parseFloat(request.getParameter("newPrice"));
-            if(newPrice >= oldPrice) {
+            if (newPrice >= oldPrice) {
                 response.sendRedirect("/SWP391-MomAndBaby/staff/product?act=update-product&status=2");
                 return;
             }
@@ -344,7 +357,7 @@ public class ProductStaffController extends HttpServlet {
         }
         return true;
     }
-    
+
     private void deleteProducts(HttpServletRequest request, HttpServletResponse response) {
         try {
             Validation validate = new Validation();
@@ -353,7 +366,7 @@ public class ProductStaffController extends HttpServlet {
             ImgDescriptionDAO imgDao = new ImgDescriptionDAO();
             Upload upload = new Upload();
             String[] listDeleteProduct = request.getParameterValues("delete-product-item");
-            if(listDeleteProduct == null) {
+            if (listDeleteProduct == null) {
                 response.sendRedirect("/SWP391-MomAndBaby/staff/product?act=delete&status=0");
                 return;
             }
