@@ -1,6 +1,7 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@include file="./components/header.jsp" %>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css"/>
+<jsp:useBean id="statusOrder" class="Utils.ConvertStatusOrder"></jsp:useBean>
 <!-- BREADCRUMB -->
 <div id="breadcrumb" class="section">
     <!-- container -->
@@ -55,6 +56,38 @@
                         <a href="/SWP391-MomAndBaby/account/pre-order">Pre order</a>
                     </div>
                 </div>
+            </div>
+            <div class="col-md-9">
+                <table class="table-responsive table table-hover" id="history">
+                    <thead>
+                    <th>No</th>
+                    <th>Name</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Action</th>
+                </thead>
+                    <tbody>
+                        <c:forEach items="${bills}" var="bill" varStatus="status">
+                            <tr>
+                                <td>${status.index + 1}</td>
+                                <td>${bill.customerName}</td>
+                                <td>${bill.phone}</td>
+                                <td>${bill.address}</td>
+                                <td><span class="${statusOrder.statusTag(bill.status)}">
+                                        ${statusOrder.statusText(bill.status)}
+                                    </span></td>
+                                <td>${bill.total}</td>
+                                <td>
+                                    <a href="/SWP391-MomAndBaby/account/history-order/detail/${bill.ID}" title="More">
+                                        <i class="fa fa-eye"></i>
+                                    </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                    </tbody>
+                </table>
             </div>
             <div class="col-md-9">
                 

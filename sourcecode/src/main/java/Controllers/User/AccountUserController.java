@@ -91,6 +91,31 @@ public class AccountUserController extends HttpServlet {
                 List<PreOrder> preOrders = preOrderDao.getAllByAccountID(accountLogin.getID());
                 request.setAttribute("preOrders", preOrders);
                 request.getRequestDispatcher("/user/historyPreOrder.jsp").forward(request, response);
+            }else if (path.startsWith("/SWP391-MomAndBaby/account/history-order/detail")) {
+                String paths[] = path.split("/");
+                BillDetailDAO billDetailDao = new BillDetailDAO();
+                int idOrder = validate.getInt(paths[paths.length - 1]);
+                Bill bill = billDao.getBillById(idOrder);
+                List<BillDetail> billDetail = billDetailDao.getBillDetailById(idOrder);
+                request.setAttribute("currentBill", bill);
+                request.setAttribute("billDetail", billDetail);
+                request.getRequestDispatcher("/user/detailOrder.jsp").forward(request, response);
+            }else if (path.startsWith("/SWP391-MomAndBaby/account/history-order/feedback")) {
+                String paths[] = path.split("/");
+                BillDetailDAO billDetailDao = new BillDetailDAO();
+                int idOrder = validate.getInt(paths[paths.length - 1]);
+                Bill bill = billDao.getBillById(idOrder);
+                if (bill != null && bill.getStatus() == 5) {
+                    FeedbackDAO feedbackDao = new FeedbackDAO();
+                    Feedback feedback = feedbackDao.getFeedBackByBillID(idOrder);
+                    if (feedback != null) {
+                        request.setAttribute("feedbacked", feedback);
+                    }
+                    request.setAttribute("currentBill", bill);
+                    request.getRequestDispatcher("/user/feedback.jsp").forward(request, response);
+                } else {
+                    response.sendRedirect("/SWP391-MomAndBaby/404");
+                }
             }
             else {
                 response.sendRedirect("/SWP391-MomAndBaby/404");
@@ -156,6 +181,24 @@ public class AccountUserController extends HttpServlet {
                     response.sendRedirect("/SWP391-MomAndBaby/account/password?act=update-account&status=" + result);
                 } else {
                     response.sendRedirect("/SWP391-MomAndBaby/account/password?act=update-password&status=2");
+                }
+            }else {
+                int idOrder = validate.getInt(request.getParameter("idOrder"));
+                int rate = validate.getInt(request.getParameter("rating"));
+                String feedbackContent = request.getParameter("feedback");
+                FeedbackDAO feedbackDao = new FeedbackDAO();
+                Timestamp datePost = date.getCurrentTime();
+                int status = 1;
+                Feedback feedback = new Feedback(0, accountLogin.getID(), 0, feedbackContent, rate, status, datePost, null);
+                feedback.setBillID(idOrder);
+                int result = 0;
+                if (request.getParameter("btn-edit-feedback") != null) {
+                    feedback.setDateUpdate(datePost);
+                    result = feedbackDao.update(feedback);
+                    response.sendRedirect("/SWP391-MomAndBaby/account/history-order/feedback/" + idOrder + "?act=edit-feedback&status=" + result);
+                } else if (request.getParameter("btn-new-feedback") != null) {
+                    result = feedbackDao.add(feedback);
+                    response.sendRedirect("/SWP391-MomAndBaby/account/history-order/feedback/" + idOrder + "?act=feedback&status=" + result);
                 }
             }
         }
