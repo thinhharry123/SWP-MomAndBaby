@@ -84,7 +84,7 @@
                     </div>
                 </div>
             </div>
-            <form action="/MomAndBaby/account" method="post">
+            <form action="/SWP391-MomAndBaby/account" method="post">
                 <div class="col-md-9">
                     <div
                         class="order-summary"

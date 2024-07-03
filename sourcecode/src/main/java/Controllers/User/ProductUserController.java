@@ -32,7 +32,7 @@ public class ProductUserController extends HttpServlet {
     private static ProductDAO productDao;
     private static Validation validate;
     private static FeedbackDAO feedbackDao;
-    private static final int numberProductInPage = 3;
+    private static final int numberProductInPage = 9;
 
     public ProductUserController() {
         this.categoryDao = new CategoryDAO();
