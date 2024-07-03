@@ -48,6 +48,10 @@
         <servlet-name>PreOrderStaffController</servlet-name>
         <servlet-class>Controllers.Staff.PreOrderStaffController</servlet-class>
     </servlet>
+      <servlet>
+        <servlet-name>PreOrderUserController</servlet-name>
+        <servlet-class>Controllers.User.PreOrderUserController</servlet-class>
+    </servlet>
     <servlet>
         <servlet-name>LogoutUserController</servlet-name>
         <servlet-class>Controllers.User.LogoutUserController</servlet-class>
@@ -111,6 +115,10 @@
     <servlet-mapping>
         <servlet-name>ProductUserController</servlet-name>
         <url-pattern>/product/*</url-pattern>
+    </servlet-mapping>
+     <servlet-mapping>
+        <servlet-name>PreOrderUserController</servlet-name>
+        <url-pattern>/preOrder/*</url-pattern>
     </servlet-mapping>
     <servlet>
         <servlet-name>AccountController</servlet-name>
