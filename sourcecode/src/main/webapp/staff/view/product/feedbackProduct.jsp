@@ -1,8 +1,3 @@
-<%-- 
-    Document   : feedbackProduct
-    Created on : Jun 19, 2024, 2:31:25 PM
-    Author     : Admin
---%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>

@@ -48,7 +48,7 @@
         <servlet-name>PreOrderStaffController</servlet-name>
         <servlet-class>Controllers.Staff.PreOrderStaffController</servlet-class>
     </servlet>
-      <servlet>
+    <servlet>
         <servlet-name>PreOrderUserController</servlet-name>
         <servlet-class>Controllers.User.PreOrderUserController</servlet-class>
     </servlet>
@@ -75,6 +75,10 @@
     <servlet>
         <servlet-name>UserGetPointController</servlet-name>
         <servlet-class>Controllers.User.UserGetPointController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ForgetPasswordUserController</servlet-name>
+        <servlet-class>Controllers.User.ForgetPasswordUserController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>SearchProductController</servlet-name>
@@ -116,7 +120,7 @@
         <servlet-name>ProductUserController</servlet-name>
         <url-pattern>/product/*</url-pattern>
     </servlet-mapping>
-     <servlet-mapping>
+    <servlet-mapping>
         <servlet-name>PreOrderUserController</servlet-name>
         <url-pattern>/preOrder/*</url-pattern>
     </servlet-mapping>
@@ -355,6 +359,10 @@
     <servlet-mapping>
         <servlet-name>UserGetPointController</servlet-name>
         <url-pattern>/get-point</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ForgetPasswordUserController</servlet-name>
+        <url-pattern>/forget</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
