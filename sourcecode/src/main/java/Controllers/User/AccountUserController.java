@@ -91,6 +91,12 @@ public class AccountUserController extends HttpServlet {
                 List<PreOrder> preOrders = preOrderDao.getAllByAccountID(accountLogin.getID());
                 request.setAttribute("preOrders", preOrders);
                 request.getRequestDispatcher("/user/historyPreOrder.jsp").forward(request, response);
+            }else if (path.startsWith("/SWP391-MomAndBaby/account/pre-order/delete")) {
+                PreOrderDAO preOrderDao = new PreOrderDAO();
+                String paths[] = path.split("/");
+                int idPreOrder = validate.getInt(paths[paths.length - 1]);
+                int result = preOrderDao.delete(idPreOrder);
+                response.sendRedirect("/SWP391-MomAndBaby/account/pre-order?act=delete-preOrder&status=" + result);
             }else if (path.startsWith("/SWP391-MomAndBaby/account/history-order/detail")) {
                 String paths[] = path.split("/");
                 BillDetailDAO billDetailDao = new BillDetailDAO();
