@@ -24,7 +24,7 @@
             <form action="/SWP391-MomAndBaby/staff/login" method="post">
                 <input type="text" class="ggg" name="username" placeholder="USERNAME" required>
                 <input type="password" class="ggg" name="password" placeholder="PASSWORD" required>
-                <h6><a href="/SWP391-MomAndBaby/staff/forget">Forgot Password?</a></h6>
+<!--                <h6><a href="/SWP391-MomAndBaby/staff/forget">Forgot Password?</a></h6>-->
                 <div class="clearfix"></div>
                 <input type="submit" value="Sign In" name="login">
                 <span class="message-error">${requestScope.message}</span>

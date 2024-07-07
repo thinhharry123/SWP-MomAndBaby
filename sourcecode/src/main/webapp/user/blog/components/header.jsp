@@ -5,7 +5,6 @@
     <head>
         <title>Blog - Mom And Baby</title>
         <base href="http://localhost:8080/SWP391-MomAndBaby/" />
-        <!--<base href="https://c586-2402-800-6343-a711-8958-7dd9-7dc8-a065.ngrok-free.app/SWP391-MomAndBaby/" />-->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800&display=swap" rel="stylesheet">
