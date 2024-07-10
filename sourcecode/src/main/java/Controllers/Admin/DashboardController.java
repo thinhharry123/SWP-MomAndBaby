@@ -38,28 +38,28 @@ public class DashboardController extends HttpServlet {
     throws ServletException, IOException {
         String path = request.getRequestURI();
         if (path.endsWith("/admin")) {
-//            AccountDAO accountDao = new AccountDAO();
-//            ProductDAO productDao = new ProductDAO();
-//            CategoryDAO categoryDao = new CategoryDAO();
-//            ProducerDAO producerDao = new ProducerDAO();
-//            BillDAO billDao = new BillDAO();
-//            FeedbackDAO feedbackDao = new FeedbackDAO();
-//            List<Category> categories = categoryDao.allCategory();
-//            List<Bill> newBills = billDao.getBillByStatus(1);
-//            List<Feedback> feedbacks = feedbackDao.allFeedbackByNew();
-//            int numberOfAccount = accountDao.allAccountByStaff().size();
-//            int numberOfProduct = productDao.getAll().size();
-//            int numberOfProducer = producerDao.allProducer().size();
-//            int numberOfCategory = categories.size();
-//            List<Product> topFiveProduct = productDao.getTopFiveProduct();
-//            request.setAttribute("feedbacks", feedbacks);
-//            request.setAttribute("newBills", newBills);
-//            request.setAttribute("categories", categories);
-//            request.setAttribute("numberOfProduct", numberOfProduct);
-//            request.setAttribute("numberOfAccount", numberOfAccount);
-//            request.setAttribute("numberOfCategory", numberOfCategory);
-//            request.setAttribute("numberOfProducer", numberOfProducer);
-//            request.setAttribute("topFiveProduct", topFiveProduct);
+          AccountDAO accountDao = new AccountDAO();
+            ProductDAO productDao = new ProductDAO();
+            CategoryDAO categoryDao = new CategoryDAO();
+            ProducerDAO producerDao = new ProducerDAO();
+            BillDAO billDao = new BillDAO();
+            FeedbackDAO feedbackDao = new FeedbackDAO();
+            List<Category> categories = categoryDao.allCategory();
+            List<Bill> newBills = billDao.getBillByStatus(1);
+            List<Feedback> feedbacks = feedbackDao.allFeedbackByNew();
+            int numberOfAccount = accountDao.allAccountByStaff().size();
+            int numberOfProduct = productDao.getAll().size();
+            int numberOfProducer = producerDao.allProducer().size();
+            int numberOfCategory = categories.size();
+            List<Product> topFiveProduct = productDao.getTopFiveProduct();
+            request.setAttribute("feedbacks", feedbacks);
+            request.setAttribute("newBills", newBills);
+            request.setAttribute("categories", categories);
+            request.setAttribute("numberOfProduct", numberOfProduct);
+            request.setAttribute("numberOfAccount", numberOfAccount);
+            request.setAttribute("numberOfCategory", numberOfCategory);
+            request.setAttribute("numberOfProducer", numberOfProducer);
+            request.setAttribute("topFiveProduct", topFiveProduct);
             request.getRequestDispatcher("/admin/view/home/home.jsp").forward(request, response);
         }
     } 
