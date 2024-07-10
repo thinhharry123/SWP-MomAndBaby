@@ -17,6 +17,7 @@
                 <p class="message-status">
                     <c:if test="${success}">
                         Thank you for choosing our product. We appreciate your trust and we’ll do our best to meet your expectations.
+                        You can check your status order in your My Order.
                     </c:if>
                     <c:if test="${fail}">
                         I'm sorry the system is busy right now, please try again later
